@@ -1,12 +1,12 @@
 github_users:
-  - torvalds
-  - alshedivat
+  - jsll 
 
 github_repos:
-  - alshedivat/al-folio
-  - twbs/bootstrap
-  - jekyll/jekyll
-  - jquery/jquery
-  - FortAwesome/Font-Awesome
-  - jpswalsh/academicons
-  - mathjax/MathJax
+  - jsll/pytorch_6dof-graspnet
+  - aalto-intelligent-robotics/DDGC
+  - aalto-intelligent-robotics/Multi-FinGAN
+  - aalto-intelligent-robotics/pytorch_barrett_hand_forward_kinematics_layer
+  - jsll/position-contrained-6dof-graspnet
+  - jsll/CONG
+  - jsll/dexterous_manipulation_graphs
+  - aalto-intelligent-robotics/point_cloud_segmentation
