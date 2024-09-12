@@ -6,7 +6,7 @@ subtitle: Postdoctoral researcher in Robotics @ KTH. PhD in Robotics from Aalto 
 
 profile:
   align: right
-  image: prof_pic.jpg
+  image: profile_pic.jpg
   image_circular: false # crops the image to make it circular
 
 news: false # includes a list of news items
@@ -23,6 +23,6 @@ I hold a Master’s degree in Space Science and Technology and a Bachelor’s de
 
 #### My main research interests:
 
-* Robotic Grasping 
+* Robotic Grasping
 * Robotic Manipulation
 * Deep Learning
