@@ -10,3 +10,4 @@ github_repos:
   - jsll/CONG
   - jsll/dexterous_manipulation_graphs
   - aalto-intelligent-robotics/point_cloud_segmentation
+  - jsll/MuJoCo-simulating-prehensile-pushing
