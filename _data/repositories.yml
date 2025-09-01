@@ -1,6 +1,8 @@
 github_users:
   - jsll 
 
+repo_description_lines_max: 2
+
 github_repos:
   - jsll/pytorch_6dof-graspnet
   - aalto-intelligent-robotics/DDGC

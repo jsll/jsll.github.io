@@ -21,7 +21,7 @@ I'm an Assistant Professor in Robotics at the [University of Turku](https://www.
 
 My research focuses on enabling robots to **grasp and manipulate** objects in uncertain and cluttered environments. I combine **deep learning**, **probabilistic reasoning**, and **tactile perception** to build robust manipulation systems.
 
-## 🤖 Bio
+## 🕰️ Bio
 
 Previously, I worked as a Postdoctoral researcher with Danica Kragic in the [Robotics, Perception and Learning Lab (RPL)](https://www.kth.se/is/rpl) at KTH in Stockholm, Sweden.
 
