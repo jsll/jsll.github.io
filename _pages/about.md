@@ -15,7 +15,13 @@ selected_papers: true # includes a list of papers marked as "selected={true}"
 social: true  # includes social icons at the bottom of the page
 ---
 
-I am Jens Lundell, an Assistant Professor in Robotics at the [University of Turku](https://www.utu.fi/en), Finland. My research interests are data-driven methods for robotic manipulation and grasping. I am currently working on in-hand manipulation of rigid objects, also known as intrinsic dexterity, deformable object manipulation, and constrained robotic grasping.
+## 👋 Hello, I’m Jens Lundell
+
+I'm an Assistant Professor in Robotics at the [University of Turku](https://www.utu.fi/en), Finland. 
+
+My research focuses on enabling robots to **grasp and manipulate** objects in uncertain and cluttered environments. I combine **deep learning**, **probabilistic reasoning**, and **tactile perception** to build robust manipulation systems.
+
+## 🤖 Bio
 
 Previously, I worked as a Postdoctoral researcher with Danica Kragic in the [Robotics, Perception and Learning Lab (RPL)](https://www.kth.se/is/rpl) at KTH in Stockholm, Sweden.
 
@@ -23,8 +29,24 @@ I did my Ph.D. in the [Intelligent Robotics group](https://irobotics.aalto.fi/) 
 
 I hold a Master’s degree in Space Science and Technology and a Bachelor’s degree in Automation and Systems Technology, both from Aalto University.
 
-#### My main research interests:
+## 🔬 Research Interests
 
-* Robotic Grasping
-* Robotic Manipulation
-* Deep Learning
+- Probabilistic grasp synthesis in cluttered scenes  
+- Generative models for robotic manipulation  
+- Cloth and deformable object state estimation  
+- Visuo-haptic shape completion  
+- Planning under uncertainty  
+
+## 📢 Opportunities
+
+I am always open to collaborating with **PhD students** or supervising **Master’s thesis projects** in areas such as:
+
+- 6-DoF grasp generation  
+- Manipulation of cluttered or deformable objects  
+- Visuo-haptic perception  
+
+If you are interested, please [contact me](mailto:jens.lundell@utu.fi) with:  
+- A short background  
+- CV and transcript  
+- Your research interests  
+- Links to code or papers (if available)  
