@@ -99,7 +99,7 @@ glyphs["|"] = ([top, right, bottom, left, topRight, bottomRight, bottomLeft, top
       bottomRight == "\\", // bottomRight
       bottomLeft == "/", // bottomLeft
       topLeft == "\\", // topLeft
-    ])
+    ]),
   );
   return result;
 };
@@ -205,7 +205,7 @@ glyphs["*"] = ([top, right, bottom, left, topRight, bottomRight, bottomLeft, top
       ["\\"].includes(bottomRight),
       ["/"].includes(bottomLeft),
       ["\\"].includes(topLeft),
-    ])
+    ]),
   );
 
   return result;
@@ -261,7 +261,7 @@ glyphs["/"] = (around) => {
       false, // bottomRight
       true, // bottomLeft
       false, // topLeft
-    ])
+    ]),
   );
   if (right == "\\") {
     const tip = cross([
@@ -315,7 +315,7 @@ glyphs["\\"] = (around) => {
       true, // bottomRight
       false, // bottomLeft
       true, // topLeft
-    ])
+    ]),
   );
   if (left == "/") {
     const tip = cross([
@@ -370,7 +370,7 @@ glyphs["#"] = ([top, right, bottom, left, topRight, bottomRight, bottomLeft, top
       ["\\"].includes(bottomRight),
       ["/"].includes(bottomLeft),
       ["\\"].includes(topLeft),
-    ])
+    ]),
   );
 
   return result;
@@ -481,7 +481,10 @@ glyphs["."] = ([top, right, bottom, left, topRight, bottomRight, bottomLeft, top
   const result = document.createElementNS("http://www.w3.org/2000/svg", "g");
 
   // top-right
-  if ((right == "-" || right == "+") && (bottom == "|" || bottom == "'" || bottom == "`" || bottom == "+")) {
+  if (
+    (right == "-" || right == "+") &&
+    (bottom == "|" || bottom == "'" || bottom == "`" || bottom == "+")
+  ) {
     const path = document.createElementNS("http://www.w3.org/2000/svg", "path");
     path.setAttribute(
       "d",
@@ -492,13 +495,16 @@ glyphs["."] = ([top, right, bottom, left, topRight, bottomRight, bottomLeft, top
         L 18 54
         L 18 42
         A 12 12, 0, 0, 1, 30 30
-        Z`
+        Z`,
     );
     result.appendChild(path);
   }
 
   // top-left
-  if ((left == "-" || left == "+") && (bottom == "|" || bottom == "'" || bottom == "`" || bottom == "+")) {
+  if (
+    (left == "-" || left == "+") &&
+    (bottom == "|" || bottom == "'" || bottom == "`" || bottom == "+")
+  ) {
     const path = document.createElementNS("http://www.w3.org/2000/svg", "path");
     path.setAttribute(
       "d",
@@ -509,7 +515,7 @@ glyphs["."] = ([top, right, bottom, left, topRight, bottomRight, bottomLeft, top
         L 12 54
         L 12 42
         A 12 12, 0, 0, 0, 0 30
-        Z`
+        Z`,
     );
     result.appendChild(path);
   }
@@ -526,7 +532,7 @@ glyphs["."] = ([top, right, bottom, left, topRight, bottomRight, bottomLeft, top
         L 18 0
         L 18 12
         A 12 12, 0, 0, 0, 30 24
-        Z`
+        Z`,
     );
     result.appendChild(path);
   }
@@ -543,7 +549,7 @@ glyphs["."] = ([top, right, bottom, left, topRight, bottomRight, bottomLeft, top
         L 12 0
         L 12 12
         A 12 12, 0, 0, 1, 0 24
-        Z`
+        Z`,
     );
     result.appendChild(path);
   }
@@ -560,7 +566,7 @@ glyphs["."] = ([top, right, bottom, left, topRight, bottomRight, bottomLeft, top
         L 24 15
         L 24 18
         A 6 6, 0, 0, 0, 30 24
-        Z`
+        Z`,
     );
     result.appendChild(path);
     const line = cross([
@@ -587,7 +593,7 @@ glyphs["."] = ([top, right, bottom, left, topRight, bottomRight, bottomLeft, top
         A 60 60, 0, 0, 0, 30 30
         L 30 24
         A 60 60, 0, 0, 1, 0 -6
-        Z`
+        Z`,
     );
     result.appendChild(path);
   }
@@ -602,7 +608,7 @@ glyphs["."] = ([top, right, bottom, left, topRight, bottomRight, bottomLeft, top
         A 60 60, 0, 0, 0, 33 0
         L 30 -6
         A 60 60, 0, 0, 1, 0 24
-        Z`
+        Z`,
     );
     result.appendChild(path);
   }
@@ -619,7 +625,7 @@ glyphs["."] = ([top, right, bottom, left, topRight, bottomRight, bottomLeft, top
         L 6 15
         L 6 18
         A 6 6, 0, 0, 1, 0 24
-        Z`
+        Z`,
     );
     result.appendChild(path);
     const line = cross([
@@ -646,7 +652,7 @@ glyphs["."] = ([top, right, bottom, left, topRight, bottomRight, bottomLeft, top
         A 120 120, 0, 0, 1, 30 -6
         L 37 -6
         A 120 120, 0, 0, 0, 18 54
-        Z`
+        Z`,
     );
     result.appendChild(path);
   }
@@ -661,7 +667,7 @@ glyphs["."] = ([top, right, bottom, left, topRight, bottomRight, bottomLeft, top
         A 120 120, 0, 0, 1, 12 0
         L 18 0
         A 120 120, 0, 0, 0, 37 60
-        Z`
+        Z`,
     );
     result.appendChild(path);
   }
@@ -676,7 +682,7 @@ glyphs["."] = ([top, right, bottom, left, topRight, bottomRight, bottomLeft, top
         A 120 120, 0, 0, 0, 18 0
         L 12 0
         A 120 120, 0, 0, 1, -7 60
-        Z`
+        Z`,
     );
     result.appendChild(path);
   }
@@ -691,7 +697,7 @@ glyphs["."] = ([top, right, bottom, left, topRight, bottomRight, bottomLeft, top
         A 120 120, 0, 0, 0, -7 -6
         L 0 -6
         A 120 120, 0, 0, 1, 18 54
-        Z`
+        Z`,
     );
     result.appendChild(path);
   }
@@ -706,7 +712,7 @@ glyphs["."] = ([top, right, bottom, left, topRight, bottomRight, bottomLeft, top
         A 42 42, 0, 0, 1, 30 24
         L 30 30
         A 42 42, 0, 0, 0, 6 48
-        Z`
+        Z`,
     );
     result.appendChild(path);
     const line = cross([
@@ -733,7 +739,7 @@ glyphs["."] = ([top, right, bottom, left, topRight, bottomRight, bottomLeft, top
         A 42 42, 0, 0, 1, 30 48
         L 24 48
         A 42 42, 0, 0, 0, 0 30
-        Z`
+        Z`,
     );
 
     result.appendChild(path);
@@ -761,7 +767,7 @@ glyphs["."] = ([top, right, bottom, left, topRight, bottomRight, bottomLeft, top
         A 12 12, 0, 0, 1, 12 39
         L 6 39
         A 6 6, 0, 0, 0, 0 30
-        Z`
+        Z`,
     );
     result.appendChild(path);
     const line = cross([
@@ -788,7 +794,7 @@ glyphs["."] = ([top, right, bottom, left, topRight, bottomRight, bottomLeft, top
         A 12 12, 0, 0, 0, 18 39
         L 24 39
         A 6 6, 0, 0, 1, 30 30
-        Z`
+        Z`,
     );
     result.appendChild(path);
     const line = cross([
@@ -815,7 +821,7 @@ glyphs["."] = ([top, right, bottom, left, topRight, bottomRight, bottomLeft, top
         A 15 15, 0, 0, 1, 27 42
         L 25 51
         A 9 9, 0, 0, 0, 5 51
-        Z`
+        Z`,
     );
     result.appendChild(path);
     const line = cross([
@@ -842,7 +848,7 @@ glyphs["."] = ([top, right, bottom, left, topRight, bottomRight, bottomLeft, top
         A 15 15, 0, 0, 0, 27 12
         L 22 9
         A 9 9, 0, 0, 1, 8 9
-        Z`
+        Z`,
     );
     result.appendChild(path);
     const line = cross([
@@ -869,7 +875,7 @@ glyphs["."] = ([top, right, bottom, left, topRight, bottomRight, bottomLeft, top
         A 30 30, 0, 0, 0, 22 45
         L 28 45
         A 30 30, 0, 0, 1, 28 9
-        Z`
+        Z`,
     );
     result.appendChild(path);
     const line = cross([
@@ -896,7 +902,7 @@ glyphs["."] = ([top, right, bottom, left, topRight, bottomRight, bottomLeft, top
         A 30 30, 0, 0, 1, 8 45
         L 2 45
         A 30 30, 0, 0, 0, 2 9
-        Z`
+        Z`,
     );
     result.appendChild(path);
     const line = cross([
@@ -959,7 +965,7 @@ glyphs[">"] = ([top, right, bottom, left, topRight, bottomRight, bottomLeft, top
       false, // bottomRight
       ["/"].includes(bottomLeft), // bottomLeft
       ["\\"].includes(topLeft), // topLeft
-    ])
+    ]),
   );
   return result;
 };
@@ -990,7 +996,7 @@ glyphs["<"] = ([top, right, bottom, left, topRight, bottomRight, bottomLeft, top
       ["\\"].includes(bottomRight), // bottomRight
       false, // bottomLeft
       false, // topLeft
-    ])
+    ]),
   );
   return result;
 };
@@ -1025,7 +1031,7 @@ glyphs["v"] = ([top, right, bottom, left, topRight, bottomRight, bottomLeft, top
       false, // bottomRight
       false, // bottomLeft
       ["\\"].includes(topLeft), // topLeft
-    ])
+    ]),
   );
   return result;
 };
@@ -1056,7 +1062,7 @@ glyphs["^"] = ([top, right, bottom, left, topRight, bottomRight, bottomLeft, top
       ["\\"].includes(bottomRight), // bottomRight
       ["/"].includes(bottomLeft), // bottomLeft
       false, // topLeft
-    ])
+    ]),
   );
   return result;
 };
@@ -1118,7 +1124,7 @@ function cross([top, right, bottom, left, topRight, bottomRight, bottomLeft, top
       [0, 3],
     ]
       .map(([x, y]) => `${x},${y}`)
-      .join(" ")
+      .join(" "),
   );
 
   if (topRight) {
@@ -1263,7 +1269,10 @@ function create(source, zoom, debug) {
   svg.setAttribute("debug", debug);
   const padding = 0;
 
-  svg.setAttribute("viewBox", `${-padding} ${-padding} ${width * 30 + 2 * padding} ${height * 54 + 2 * padding}`);
+  svg.setAttribute(
+    "viewBox",
+    `${-padding} ${-padding} ${width * 30 + 2 * padding} ${height * 54 + 2 * padding}`,
+  );
   svg.setAttribute("class", "debug");
   svg.appendChild(render(diagram));
 

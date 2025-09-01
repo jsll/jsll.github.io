@@ -18,7 +18,20 @@
   // limitations under the License.
 
   const days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
-  const months = ["Jan.", "Feb.", "March", "April", "May", "June", "July", "Aug.", "Sept.", "Oct.", "Nov.", "Dec."];
+  const months = [
+    "Jan.",
+    "Feb.",
+    "March",
+    "April",
+    "May",
+    "June",
+    "July",
+    "Aug.",
+    "Sept.",
+    "Oct.",
+    "Nov.",
+    "Dec.",
+  ];
   const zeroPad = (n) => (n < 10 ? "0" + n : n);
 
   const RFC = function (date) {
@@ -35,7 +48,7 @@
   const objectFromMap = function (map) {
     const object = Array.from(map).reduce(
       (object, [key, value]) => Object.assign(object, { [key]: value }), // Be careful! Maps can have non-String keys; object literals can't.
-      {}
+      {},
     );
     return object;
   };
@@ -305,7 +318,7 @@
         this.citations.map((citationKey) => {
           const entry = this.bibliography.get(citationKey);
           return [citationKey, entry];
-        })
+        }),
       );
     }
 
@@ -403,7 +416,9 @@
       }
 
       renderContent() {
-        console.error(`Your class ${this.constructor.name} must provide a custom renderContent() method!`);
+        console.error(
+          `Your class ${this.constructor.name} must provide a custom renderContent() method!`,
+        );
       }
     }; // end class
   }; // end mixin function
@@ -630,7 +645,10 @@
           if (!(e instanceof katex.ParseError)) {
             throw e;
           }
-          optionsCopy.errorCallback("KaTeX auto-render: Failed to parse `" + data[i].data + "` with ", e);
+          optionsCopy.errorCallback(
+            "KaTeX auto-render: Failed to parse `" + data[i].data + "` with ",
+            e,
+          );
           fragment.appendChild(document.createTextNode(data[i].rawData));
           continue;
         }
@@ -654,7 +672,8 @@
         }
       } else if (childNode.nodeType === 1) {
         // Element node
-        const shouldRender = optionsCopy.ignoredTags.indexOf(childNode.nodeName.toLowerCase()) === -1;
+        const shouldRender =
+          optionsCopy.ignoredTags.indexOf(childNode.nodeName.toLowerCase()) === -1;
 
         if (shouldRender) {
           renderElem(childNode, optionsCopy);
@@ -695,7 +714,8 @@
   // Copyright 2018 The Distill Template Authors
 
   const katexJSURL = "https://distill.pub/third-party/katex/katex.min.js";
-  const katexCSSTag = '<link rel="stylesheet" href="https://distill.pub/third-party/katex/katex.min.css" crossorigin="anonymous">';
+  const katexCSSTag =
+    '<link rel="stylesheet" href="https://distill.pub/third-party/katex/katex.min.css" crossorigin="anonymous">';
 
   const T = Template(
     "d-math",
@@ -715,7 +735,7 @@ ${katexCSSTag}
 ${math}
 </style>
 <span id='katex-container'></span>
-`
+`,
   );
 
   // DMath, not Math, because that would conflict with the JS built-in
@@ -841,7 +861,11 @@ ${math}
           .map((s) => s.trim()[0]);
         initials = initials.join(".") + ".";
       }
-      return template.replace("${F}", firsts).replace("${L}", last).replace("${I}", initials).trim(); // in case one of first or last was empty
+      return template
+        .replace("${F}", firsts)
+        .replace("${L}", last)
+        .replace("${I}", initials)
+        .trim(); // in case one of first or last was empty
     });
     if (names.length > 1) {
       var str = name_strings.slice(0, names.length - 1).join(sep);
@@ -892,7 +916,9 @@ ${math}
   }
   function doi_string(ent, new_line) {
     if ("doi" in ent) {
-      return `${new_line ? "<br>" : ""} <a href="https://doi.org/${ent.doi}" style="text-decoration:inherit;">DOI: ${ent.doi}</a>`;
+      return `${new_line ? "<br>" : ""} <a href="https://doi.org/${
+        ent.doi
+      }" style="text-decoration:inherit;">DOI: ${ent.doi}</a>`;
     } else {
       return "";
     }
@@ -985,7 +1011,7 @@ ${math}
       if (!hasOldStyle) continue;
       if (hasNewStyle) {
         console.warn(
-          `Author ${author.author} has both old-style ("affiliation" & "affiliationURL") and new style ("affiliations") affiliation information!`
+          `Author ${author.author} has both old-style ("affiliation" & "affiliationURL") and new style ("affiliations") affiliation information!`,
         );
       } else {
         let newAffiliation = {
@@ -1011,7 +1037,7 @@ ${math}
       }
     } else {
       console.error(
-        "You added a frontmatter tag but did not provide a script tag with front matter data in it. Please take a look at our templates."
+        "You added a frontmatter tag but did not provide a script tag with front matter data in it. Please take a look at our templates.",
       );
     }
     return {};
@@ -1161,7 +1187,9 @@ ${math}
         // ensure we have a loaded bibliography
         if (!frontMatter.bibliographyParsed) {
           // console.debug('onCiteKeyCreated, but unresolved dependency ("bibliography"). Enqueing.');
-          Controller.waitingOn.bibliography.push(() => Controller.listeners.onCiteKeyCreated(event));
+          Controller.waitingOn.bibliography.push(() =>
+            Controller.listeners.onCiteKeyCreated(event),
+          );
           return;
         }
 
@@ -1186,7 +1214,7 @@ ${math}
         const bibliographyEntries = new Map(
           frontMatter.citations.map((citationKey) => {
             return [citationKey, frontMatter.bibliography.get(citationKey)];
-          })
+          }),
         );
         citationListTag.citations = bibliographyEntries;
 
@@ -1233,7 +1261,7 @@ ${math}
           const entries = new Map(
             frontMatter.citations.map((citationKey) => {
               return [citationKey, frontMatter.bibliography.get(citationKey)];
-            })
+            }),
           );
           citationListTag.citations = entries;
         }
@@ -1287,7 +1315,11 @@ ${math}
           console.warn("Controller received DOMContentLoaded but was already loaded!");
           return;
         } else if (!domContentLoaded()) {
-          console.warn("Controller received DOMContentLoaded at document.readyState: " + document.readyState + "!");
+          console.warn(
+            "Controller received DOMContentLoaded at document.readyState: " +
+              document.readyState +
+              "!",
+          );
           return;
         } else {
           Controller.loaded = true;
@@ -1500,7 +1532,7 @@ ${math}
 </style>
 
 <slot></slot>
-`
+`,
   );
 
   class Abstract extends T$1(HTMLElement) {}
@@ -1569,7 +1601,7 @@ d-appendix > distill-appendix {
 </style>
 
 `,
-    false
+    false,
   );
 
   class Appendix extends T$2(HTMLElement) {}
@@ -1612,7 +1644,7 @@ d-appendix > distill-appendix {
                   if (!isOnlyWhitespace.test(text)) {
                     console.warn(
                       "Use of unwrapped text in distill articles is discouraged as it breaks layout! Please wrap any text in a <span> or <p> tag. We found the following text: " +
-                        text
+                        text,
                     );
                     const wrapper = document.createElement("span");
                     wrapper.innerHTML = addedNode.nodeValue;
@@ -1669,7 +1701,20 @@ d-appendix > distill-appendix {
     //value_braces -> '{' .*? '"'; // not quite
     (function (exports) {
       function BibtexParser() {
-        this.months = ["jan", "feb", "mar", "apr", "may", "jun", "jul", "aug", "sep", "oct", "nov", "dec"];
+        this.months = [
+          "jan",
+          "feb",
+          "mar",
+          "apr",
+          "may",
+          "jun",
+          "jul",
+          "aug",
+          "sep",
+          "oct",
+          "nov",
+          "dec",
+        ];
         this.notKey = [",", "{", "}", " ", "="];
         this.pos = 0;
         this.input = "";
@@ -2092,11 +2137,11 @@ d-appendix > distill-appendix {
           .map((affiliation) =>
             affiliation.url
               ? `<a class="affiliation" href="${affiliation.url}">${affiliation.name}</a>`
-              : `<span class="affiliation">${affiliation.name}</span>`
+              : `<span class="affiliation">${affiliation.name}</span>`,
           )
           .join(", ")}
         </p>
-      `
+      `,
         )
         .join("")}
     </div>
@@ -2182,7 +2227,7 @@ ul li:last-of-type {
 <div id="citation-" class="citation">
   <span class="citation-number"></span>
 </div>
-`
+`,
   );
 
   class Cite extends T$3(HTMLElement) {
@@ -2596,7 +2641,7 @@ d-citation-list .references .title {
           var env = {
             callback: callback,
             container: container,
-            selector: 'd-code',
+            selector: "d-code",
           };
 
           _.hooks.run("before-highlightall", env);
@@ -2616,12 +2661,14 @@ d-citation-list .references .title {
           var grammar = _.languages[language];
 
           // Set language on the element, if not present
-          element.className = element.className.replace(lang, "").replace(/\s+/g, " ") + " language-" + language;
+          element.className =
+            element.className.replace(lang, "").replace(/\s+/g, " ") + " language-" + language;
 
           // Set language on the parent, for styling
           var parent = element.parentNode;
           if (parent && parent.nodeName.toLowerCase() === "pre") {
-            parent.className = parent.className.replace(lang, "").replace(/\s+/g, " ") + " language-" + language;
+            parent.className =
+              parent.className.replace(lang, "").replace(/\s+/g, " ") + " language-" + language;
           }
 
           var code = element.textContent;
@@ -2672,7 +2719,7 @@ d-citation-list .references .title {
                 language: env.language,
                 code: env.code,
                 immediateClose: true,
-              })
+              }),
             );
           } else {
             insertHighlightedCode(_.highlight(env.code, env.grammar, env.language));
@@ -2781,10 +2828,23 @@ d-citation-list .references .title {
 
         var attributes = "";
         for (var name in env.attributes) {
-          attributes += " " + name + '="' + (env.attributes[name] || "").replace(/"/g, "&quot;") + '"';
+          attributes +=
+            " " + name + '="' + (env.attributes[name] || "").replace(/"/g, "&quot;") + '"';
         }
 
-        return "<" + env.tag + ' class="' + env.classes.join(" ") + '"' + attributes + ">" + env.content + "</" + env.tag + ">";
+        return (
+          "<" +
+          env.tag +
+          ' class="' +
+          env.classes.join(" ") +
+          '"' +
+          attributes +
+          ">" +
+          env.content +
+          "</" +
+          env.tag +
+          ">"
+        );
       };
 
       /**
@@ -2871,7 +2931,12 @@ d-citation-list .references .title {
                 }
 
                 // find the last node which is affected by this match
-                for (var k = currentNode; k !== tokenList.tail && (p < to || (typeof k.value === "string" && !k.prev.value.greedy)); k = k.next) {
+                for (
+                  var k = currentNode;
+                  k !== tokenList.tail &&
+                  (p < to || (typeof k.value === "string" && !k.prev.value.greedy));
+                  k = k.next
+                ) {
                   removeCount++;
                   p += k.value.length;
                 }
@@ -2913,14 +2978,29 @@ d-citation-list .references .title {
 
               removeRange(tokenList, removeFrom, removeCount);
 
-              var wrapped = new Token(token, inside ? _.tokenize(match, inside) : match, alias, match, greedy);
+              var wrapped = new Token(
+                token,
+                inside ? _.tokenize(match, inside) : match,
+                alias,
+                match,
+                greedy,
+              );
               currentNode = addAfter(tokenList, removeFrom, wrapped);
 
               if (after) {
                 addAfter(tokenList, currentNode, after);
               }
 
-              if (removeCount > 1) matchGrammar(text, tokenList, grammar, currentNode.prev, pos, true, token + "," + j);
+              if (removeCount > 1)
+                matchGrammar(
+                  text,
+                  tokenList,
+                  grammar,
+                  currentNode.prev,
+                  pos,
+                  true,
+                  token + "," + j,
+                );
 
               if (oneshot) break;
             }
@@ -3024,7 +3104,7 @@ d-citation-list .references .title {
                 _self.close();
               }
             },
-            false
+            false,
           );
         }
 
@@ -3087,12 +3167,14 @@ d-citation-list .references .title {
       comment: /<!--[\s\S]*?-->/,
       prolog: /<\?[\s\S]+?\?>/,
       doctype: {
-        pattern: /<!DOCTYPE(?:[^>"'[\]]|"[^"]*"|'[^']*')+(?:\[(?:(?!<!--)[^"'\]]|"[^"]*"|'[^']*'|<!--[\s\S]*?-->)*\]\s*)?>/i,
+        pattern:
+          /<!DOCTYPE(?:[^>"'[\]]|"[^"]*"|'[^']*')+(?:\[(?:(?!<!--)[^"'\]]|"[^"]*"|'[^']*'|<!--[\s\S]*?-->)*\]\s*)?>/i,
         greedy: true,
       },
       cdata: /<!\[CDATA\[[\s\S]*?]]>/i,
       tag: {
-        pattern: /<\/?(?!\d)[^\s>\/=$<%]+(?:\s(?:\s*[^\s>\/=]+(?:\s*=\s*(?:"[^"]*"|'[^']*'|[^\s'">=]+(?=[\s>]))|(?=[\s/>])))+)?\s*\/?>/i,
+        pattern:
+          /<\/?(?!\d)[^\s>\/=$<%]+(?:\s(?:\s*[^\s>\/=]+(?:\s*=\s*(?:"[^"]*"|'[^']*'|[^\s'">=]+(?=[\s>]))|(?=[\s/>])))+)?\s*\/?>/i,
         greedy: true,
         inside: {
           tag: {
@@ -3126,7 +3208,8 @@ d-citation-list .references .title {
       entity: /&#?[\da-z]{1,8};/i,
     };
 
-    Prism.languages.markup["tag"].inside["attr-value"].inside["entity"] = Prism.languages.markup["entity"];
+    Prism.languages.markup["tag"].inside["attr-value"].inside["entity"] =
+      Prism.languages.markup["entity"];
 
     // Plugin to make entity title show the real entity, idea by Roman Komarov
     Prism.hooks.add("wrap", function (env) {
@@ -3170,10 +3253,13 @@ d-citation-list .references .title {
         var def = {};
         def[tagName] = {
           pattern: RegExp(
-            /(<__[\s\S]*?>)(?:<!\[CDATA\[[\s\S]*?\]\]>\s*|[\s\S])*?(?=<\/__>)/.source.replace(/__/g, function () {
-              return tagName;
-            }),
-            "i"
+            /(<__[\s\S]*?>)(?:<!\[CDATA\[[\s\S]*?\]\]>\s*|[\s\S])*?(?=<\/__>)/.source.replace(
+              /__/g,
+              function () {
+                return tagName;
+              },
+            ),
+            "i",
           ),
           lookbehind: true,
           greedy: true,
@@ -3203,7 +3289,8 @@ d-citation-list .references .title {
           inside: {
             rule: /^@[\w-]+/,
             "selector-function-argument": {
-              pattern: /(\bselector\s*\((?!\s*\))\s*)(?:[^()]|\((?:[^()]|\([^()]*\))*\))+?(?=\s*\))/,
+              pattern:
+                /(\bselector\s*\((?!\s*\))\s*)(?:[^()]|\((?:[^()]|\([^()]*\))*\))+?(?=\s*\))/,
               lookbehind: true,
               alias: "selector",
             },
@@ -3255,7 +3342,7 @@ d-citation-list .references .title {
               alias: "language-css",
             },
           },
-          markup.tag
+          markup.tag,
         );
       }
     })(Prism);
@@ -3281,13 +3368,15 @@ d-citation-list .references .title {
         greedy: true,
       },
       "class-name": {
-        pattern: /(\b(?:class|interface|extends|implements|trait|instanceof|new)\s+|\bcatch\s+\()[\w.\\]+/i,
+        pattern:
+          /(\b(?:class|interface|extends|implements|trait|instanceof|new)\s+|\bcatch\s+\()[\w.\\]+/i,
         lookbehind: true,
         inside: {
           punctuation: /[.\\]/,
         },
       },
-      keyword: /\b(?:if|else|while|do|for|return|in|instanceof|function|new|try|throw|catch|finally|null|break|continue)\b/,
+      keyword:
+        /\b(?:if|else|while|do|for|return|in|instanceof|function|new|try|throw|catch|finally|null|break|continue)\b/,
       boolean: /\b(?:true|false)\b/,
       function: /\w+(?=\()/,
       number: /\b0x[\da-f]+\b|(?:\b\d+\.?\d*|\B\.\d+)(?:e[+-]?\d+)?/i,
@@ -3303,7 +3392,8 @@ d-citation-list .references .title {
       "class-name": [
         Prism.languages.clike["class-name"],
         {
-          pattern: /(^|[^$\w\xA0-\uFFFF])[_$A-Z\xA0-\uFFFF][$\w\xA0-\uFFFF]*(?=\.(?:prototype|constructor))/,
+          pattern:
+            /(^|[^$\w\xA0-\uFFFF])[_$A-Z\xA0-\uFFFF][$\w\xA0-\uFFFF]*(?=\.(?:prototype|constructor))/,
           lookbehind: true,
         },
       ],
@@ -3325,7 +3415,8 @@ d-citation-list .references .title {
       operator: /--|\+\+|\*\*=?|=>|&&|\|\||[!=]==|<<=?|>>>?=?|[-+*/%&|^!=<>]=?|\.{3}|\?[.?]?|[~:]/,
     });
 
-    Prism.languages.javascript["class-name"][0].pattern = /(\b(?:class|interface|extends|implements|instanceof|new)\s+)[\w.\\]+/;
+    Prism.languages.javascript["class-name"][0].pattern =
+      /(\b(?:class|interface|extends|implements|instanceof|new)\s+)[\w.\\]+/;
 
     Prism.languages.insertBefore("javascript", "keyword", {
       regex: {
@@ -3342,7 +3433,8 @@ d-citation-list .references .title {
       },
       parameter: [
         {
-          pattern: /(function(?:\s+[_$A-Za-z\xA0-\uFFFF][$\w\xA0-\uFFFF]*)?\s*\(\s*)(?!\s)(?:[^()]|\([^()]*\))+?(?=\s*\))/,
+          pattern:
+            /(function(?:\s+[_$A-Za-z\xA0-\uFFFF][$\w\xA0-\uFFFF]*)?\s*\(\s*)(?!\s)(?:[^()]|\([^()]*\))+?(?=\s*\))/,
           lookbehind: true,
           inside: Prism.languages.javascript,
         },
@@ -3423,62 +3515,65 @@ d-citation-list .references .title {
           tex: "latex",
         };
 
-        Array.prototype.slice.call(container.querySelectorAll("pre[data-src]")).forEach(function (pre) {
-          // ignore if already loaded
-          if (pre.hasAttribute("data-src-loaded")) {
-            return;
-          }
-
-          // load current
-          var src = pre.getAttribute("data-src");
-
-          var language,
-            parent = pre;
-          var lang = /\blang(?:uage)?-([\w-]+)\b/i;
-          while (parent && !lang.test(parent.className)) {
-            parent = parent.parentNode;
-          }
-
-          if (parent) {
-            language = (pre.className.match(lang) || [, ""])[1];
-          }
-
-          if (!language) {
-            var extension = (src.match(/\.(\w+)$/) || [, ""])[1];
-            language = Extensions[extension] || extension;
-          }
-
-          var code = document.createElement("code");
-          code.className = "language-" + language;
-
-          pre.textContent = "";
-
-          code.textContent = "Loading…";
-
-          pre.appendChild(code);
-
-          var xhr = new XMLHttpRequest();
-
-          xhr.open("GET", src, true);
-
-          xhr.onreadystatechange = function () {
-            if (xhr.readyState == 4) {
-              if (xhr.status < 400 && xhr.responseText) {
-                code.textContent = xhr.responseText;
-
-                Prism.highlightElement(code);
-                // mark as loaded
-                pre.setAttribute("data-src-loaded", "");
-              } else if (xhr.status >= 400) {
-                code.textContent = "✖ Error " + xhr.status + " while fetching file: " + xhr.statusText;
-              } else {
-                code.textContent = "✖ Error: File does not exist or is empty";
-              }
+        Array.prototype.slice
+          .call(container.querySelectorAll("pre[data-src]"))
+          .forEach(function (pre) {
+            // ignore if already loaded
+            if (pre.hasAttribute("data-src-loaded")) {
+              return;
             }
-          };
 
-          xhr.send(null);
-        });
+            // load current
+            var src = pre.getAttribute("data-src");
+
+            var language,
+              parent = pre;
+            var lang = /\blang(?:uage)?-([\w-]+)\b/i;
+            while (parent && !lang.test(parent.className)) {
+              parent = parent.parentNode;
+            }
+
+            if (parent) {
+              language = (pre.className.match(lang) || [, ""])[1];
+            }
+
+            if (!language) {
+              var extension = (src.match(/\.(\w+)$/) || [, ""])[1];
+              language = Extensions[extension] || extension;
+            }
+
+            var code = document.createElement("code");
+            code.className = "language-" + language;
+
+            pre.textContent = "";
+
+            code.textContent = "Loading…";
+
+            pre.appendChild(code);
+
+            var xhr = new XMLHttpRequest();
+
+            xhr.open("GET", src, true);
+
+            xhr.onreadystatechange = function () {
+              if (xhr.readyState == 4) {
+                if (xhr.status < 400 && xhr.responseText) {
+                  code.textContent = xhr.responseText;
+
+                  Prism.highlightElement(code);
+                  // mark as loaded
+                  pre.setAttribute("data-src-loaded", "");
+                } else if (xhr.status >= 400) {
+                  code.textContent =
+                    "✖ Error " + xhr.status + " while fetching file: " + xhr.statusText;
+                } else {
+                  code.textContent = "✖ Error: File does not exist or is empty";
+                }
+              }
+            };
+
+            xhr.send(null);
+          });
       };
 
       document.addEventListener("DOMContentLoaded", function () {
@@ -3546,12 +3641,14 @@ d-citation-list .references .title {
     builtin:
       /\b(?:__import__|abs|all|any|apply|ascii|basestring|bin|bool|buffer|bytearray|bytes|callable|chr|classmethod|cmp|coerce|compile|complex|delattr|dict|dir|divmod|enumerate|eval|execfile|file|filter|float|format|frozenset|getattr|globals|hasattr|hash|help|hex|id|input|int|intern|isinstance|issubclass|iter|len|list|locals|long|map|max|memoryview|min|next|object|oct|open|ord|pow|property|range|raw_input|reduce|reload|repr|reversed|round|set|setattr|slice|sorted|staticmethod|str|sum|super|tuple|type|unichr|unicode|vars|xrange|zip)\b/,
     boolean: /\b(?:True|False|None)\b/,
-    number: /(?:\b(?=\d)|\B(?=\.))(?:0[bo])?(?:(?:\d|0x[\da-f])[\da-f]*\.?\d*|\.\d+)(?:e[+-]?\d+)?j?\b/i,
+    number:
+      /(?:\b(?=\d)|\B(?=\.))(?:0[bo])?(?:(?:\d|0x[\da-f])[\da-f]*\.?\d*|\.\d+)(?:e[+-]?\d+)?j?\b/i,
     operator: /[-+%=]=?|!=|\*\*?=?|\/\/?=?|<[<=>]?|>[=>]?|[&|^~]/,
     punctuation: /[{}[\];(),.:]/,
   };
 
-  Prism.languages.python["string-interpolation"].inside["interpolation"].inside.rest = Prism.languages.python;
+  Prism.languages.python["string-interpolation"].inside["interpolation"].inside.rest =
+    Prism.languages.python;
 
   Prism.languages.py = Prism.languages.python;
 
@@ -3572,13 +3669,15 @@ d-citation-list .references .title {
       greedy: true,
     },
     "class-name": {
-      pattern: /(\b(?:class|interface|extends|implements|trait|instanceof|new)\s+|\bcatch\s+\()[\w.\\]+/i,
+      pattern:
+        /(\b(?:class|interface|extends|implements|trait|instanceof|new)\s+|\bcatch\s+\()[\w.\\]+/i,
       lookbehind: true,
       inside: {
         punctuation: /[.\\]/,
       },
     },
-    keyword: /\b(?:if|else|while|do|for|return|in|instanceof|function|new|try|throw|catch|finally|null|break|continue)\b/,
+    keyword:
+      /\b(?:if|else|while|do|for|return|in|instanceof|function|new|try|throw|catch|finally|null|break|continue)\b/,
     boolean: /\b(?:true|false)\b/,
     function: /\w+(?=\()/,
     number: /\b0x[\da-f]+\b|(?:\b\d+\.?\d*|\B\.\d+)(?:e[+-]?\d+)?/i,
@@ -3590,11 +3689,14 @@ d-citation-list .references .title {
     comment: /^#!.+|--(?:\[(=*)\[[\s\S]*?\]\1\]|.*)/m,
     // \z may be used to skip the following space
     string: {
-      pattern: /(["'])(?:(?!\1)[^\\\r\n]|\\z(?:\r\n|\s)|\\(?:\r\n|[\s\S]))*\1|\[(=*)\[[\s\S]*?\]\2\]/,
+      pattern:
+        /(["'])(?:(?!\1)[^\\\r\n]|\\z(?:\r\n|\s)|\\(?:\r\n|[\s\S]))*\1|\[(=*)\[[\s\S]*?\]\2\]/,
       greedy: true,
     },
-    number: /\b0x[a-f\d]+\.?[a-f\d]*(?:p[+-]?\d+)?\b|\b\d+(?:\.\B|\.?\d*(?:e[+-]?\d+)?\b)|\B\.\d+(?:e[+-]?\d+)?\b/i,
-    keyword: /\b(?:and|break|do|else|elseif|end|false|for|function|goto|if|in|local|nil|not|or|repeat|return|then|true|until|while)\b/,
+    number:
+      /\b0x[a-f\d]+\.?[a-f\d]*(?:p[+-]?\d+)?\b|\b\d+(?:\.\B|\.?\d*(?:e[+-]?\d+)?\b)|\B\.\d+(?:e[+-]?\d+)?\b/i,
+    keyword:
+      /\b(?:and|break|do|else|elseif|end|false|for|function|goto|if|in|local|nil|not|or|repeat|return|then|true|until|while)\b/,
     function: /(?!\d)\w+(?=\s*(?:[({]))/,
     operator: [
       /[-+*%^&|#]|\/\/?|<[<=]?|>[>=]?|[=~]=?/,
@@ -3635,7 +3737,8 @@ d-citation-list .references .title {
             ],
             number: /\b0x[\dA-Fa-f]+\b|(?:\b\d+\.?\d*|\B\.\d+)(?:[Ee]-?\d+)?/,
             // Operators according to https://www.gnu.org/software/bash/manual/bashref.html#Shell-Arithmetic
-            operator: /--?|-=|\+\+?|\+=|!=?|~|\*\*?|\*=|\/=?|%=?|<<=?|>>=?|<=?|>=?|==?|&&?|&=|\^=?|\|\|?|\|=|\?|:/,
+            operator:
+              /--?|-=|\+\+?|\+=|!=?|~|\*\*?|\*=|\/=?|%=?|<<=?|>>=?|<=?|>=?|==?|&&?|&=|\^=?|\|\|?|\|=|\?|:/,
             // If there is no $ sign at the beginning highlight (( and )) as punctuation
             punctuation: /\(\(?|\)\)?|,|;/,
           },
@@ -3665,7 +3768,8 @@ d-citation-list .references .title {
         /\$(?:\w+|[#?*!@$])/,
       ],
       // Escape sequences from echo and printf's manuals, and escaped quotes.
-      entity: /\\(?:[abceEfnrtv\\"]|O?[0-7]{1,3}|x[0-9a-fA-F]{1,2}|u[0-9a-fA-F]{4}|U[0-9a-fA-F]{8})/,
+      entity:
+        /\\(?:[abceEfnrtv\\"]|O?[0-7]{1,3}|x[0-9a-fA-F]{1,2}|u[0-9a-fA-F]{4}|U[0-9a-fA-F]{8})/,
     };
 
     Prism.languages.bash = {
@@ -3748,7 +3852,8 @@ d-citation-list .references .title {
         lookbehind: true,
       },
       keyword: {
-        pattern: /(^|[\s;|&]|[<>]\()(?:if|then|else|elif|fi|for|while|in|case|esac|function|select|do|done|until)(?=$|[)\s;|&])/,
+        pattern:
+          /(^|[\s;|&]|[<>]\()(?:if|then|else|elif|fi|for|while|in|case|esac|function|select|do|done|until)(?=$|[)\s;|&])/,
         lookbehind: true,
       },
       // https://www.gnu.org/software/bash/manual/html_node/Shell-Builtin-Commands.html
@@ -3815,7 +3920,8 @@ d-citation-list .references .title {
     builtin:
       /\b(?:bool|byte|complex(?:64|128)|error|float(?:32|64)|rune|string|u?int(?:8|16|32|64)?|uintptr|append|cap|close|complex|copy|delete|imag|len|make|new|panic|print(?:ln)?|real|recover)\b/,
     boolean: /\b(?:_|iota|nil|true|false)\b/,
-    operator: /[*\/%^!=]=?|\+[=+]?|-[=-]?|\|[=|]?|&(?:=|&|\^=?)?|>(?:>=?|=)?|<(?:<=?|=|-)?|:=|\.\.\./,
+    operator:
+      /[*\/%^!=]=?|\+[=+]?|-[=-]?|\|[=|]?|&(?:=|&|\^=?)?|>(?:>=?|=)?|<(?:<=?|=|-)?|:=|\.\.\./,
     number: /(?:\b0x[a-f\d]+|(?:\b\d+\.?\d*|\B\.\d+)(?:e[-+]?\d+)?)i?/i,
     string: {
       pattern: /(["'`])(?:\\[\s\S]|(?!\1)[^\\])*\1/,
@@ -3899,7 +4005,8 @@ d-citation-list .references .title {
       code: [
         {
           // Prefixed by 4 spaces or 1 tab and preceded by an empty line
-          pattern: /((?:^|\n)[ \t]*\n|(?:^|\r\n?)[ \t]*\r\n?)(?: {4}|\t).+(?:(?:\n|\r\n?)(?: {4}|\t).+)*/,
+          pattern:
+            /((?:^|\n)[ \t]*\n|(?:^|\r\n?)[ \t]*\r\n?)(?: {4}|\t).+(?:(?:\n|\r\n?)(?: {4}|\t).+)*/,
           lookbehind: true,
           alias: "keyword",
         },
@@ -3975,7 +4082,8 @@ d-citation-list .references .title {
         // [id]: http://example.com 'Optional title'
         // [id]: http://example.com (Optional title)
         // [id]: <http://example.com> "Optional title"
-        pattern: /!?\[[^\]]+\]:[\t ]+(?:\S+|<(?:\\.|[^>\\])+>)(?:[\t ]+(?:"(?:\\.|[^"\\])*"|'(?:\\.|[^'\\])*'|\((?:\\.|[^)\\])*\)))?/,
+        pattern:
+          /!?\[[^\]]+\]:[\t ]+(?:\S+|<(?:\\.|[^>\\])+>)(?:[\t ]+(?:"(?:\\.|[^"\\])*"|'(?:\\.|[^'\\])*'|\((?:\\.|[^)\\])*\)))?/,
         inside: {
           variable: {
             pattern: /^(!?\[)[^\]]+/,
@@ -4039,7 +4147,11 @@ d-citation-list .references .title {
         // [example](http://example.com "Optional title")
         // [example][id]
         // [example] [id]
-        pattern: createInline(/!?\[(?:(?!\])<inner>)+\](?:\([^\s)]+(?:[\t ]+"(?:\\.|[^"\\])*")?\)| ?\[(?:(?!\])<inner>)+\])/.source, false),
+        pattern: createInline(
+          /!?\[(?:(?!\])<inner>)+\](?:\([^\s)]+(?:[\t ]+"(?:\\.|[^"\\])*")?\)| ?\[(?:(?!\])<inner>)+\])/
+            .source,
+          false,
+        ),
         lookbehind: true,
         greedy: true,
         inside: {
@@ -4062,7 +4174,8 @@ d-citation-list .references .title {
     ["url", "bold", "italic", "strike"].forEach(function (token) {
       ["url", "bold", "italic", "strike"].forEach(function (inside) {
         if (token !== inside) {
-          Prism.languages.markdown[token].inside.content.inside[inside] = Prism.languages.markdown[inside];
+          Prism.languages.markdown[token].inside.content.inside[inside] =
+            Prism.languages.markdown[inside];
         }
       });
     });
@@ -4102,7 +4215,13 @@ d-citation-list .references .title {
           var codeLang = token.content[1];
           var codeBlock = token.content[3];
 
-          if (codeLang && codeBlock && codeLang.type === "code-language" && codeBlock.type === "code-block" && typeof codeLang.content === "string") {
+          if (
+            codeLang &&
+            codeBlock &&
+            codeLang.type === "code-language" &&
+            codeBlock.type === "code-block" &&
+            typeof codeLang.content === "string"
+          ) {
             // this might be a language that Prism does not support
 
             // do some replacements to support C++, C#, and F#
@@ -4211,7 +4330,7 @@ ${css}
 
 <code id="code-container"></code>
 
-`
+`,
   );
 
   class Code extends Mutating(T$4(HTMLElement)) {
@@ -4220,13 +4339,15 @@ ${css}
       this.languageName = this.getAttribute("language");
       if (!this.languageName) {
         console.warn(
-          'You need to provide a language attribute to your <d-code> block to let us know how to highlight your code; e.g.:\n <d-code language="python">zeros = np.zeros(shape)</d-code>.'
+          'You need to provide a language attribute to your <d-code> block to let us know how to highlight your code; e.g.:\n <d-code language="python">zeros = np.zeros(shape)</d-code>.',
         );
         return;
       }
       const language = prism.languages[this.languageName];
       if (language == undefined) {
-        console.warn(`Distill does not yet support highlighting your code block in "${this.languageName}'.`);
+        console.warn(
+          `Distill does not yet support highlighting your code block in "${this.languageName}'.`,
+        );
         return;
       }
 
@@ -4297,7 +4418,7 @@ span {
   <span id="fn-" data-hover-ref=""></span>
 </sup>
 
-`
+`,
   );
 
   class Footnote extends T$5(HTMLElement) {
@@ -4372,7 +4493,7 @@ d-footnote-list a.footnote-backlink {
 <h3>Footnotes</h3>
 <ol></ol>
 `,
-    false
+    false,
   );
 
   class FootnoteList extends T$6(HTMLElement) {
@@ -4475,7 +4596,7 @@ d-footnote-list a.footnote-backlink {
     <slot></slot>
   </div>
 </div>
-`
+`,
   );
 
   class HoverBox extends T$7(HTMLElement) {
@@ -4507,7 +4628,7 @@ d-footnote-list a.footnote-backlink {
         (event) => {
           event.stopPropagation();
         },
-        { passive: true }
+        { passive: true },
       );
       // Close box when touching outside box
       document.body.addEventListener(
@@ -4515,7 +4636,7 @@ d-footnote-list a.footnote-backlink {
         () => {
           this.hide();
         },
-        { passive: true }
+        { passive: true },
       );
     }
 
@@ -4542,7 +4663,7 @@ d-footnote-list a.footnote-backlink {
           // Don't trigger body touchstart event when touching link
           event.stopPropagation();
         },
-        { passive: true }
+        { passive: true },
       );
     }
 
@@ -4610,7 +4731,7 @@ d-references {
 }
 </style>
 `,
-    false
+    false,
   );
 
   class References extends T$8(HTMLElement) {}
@@ -4998,7 +5119,7 @@ p small {
     <p><small>Enter the password we shared with you as part of the review process to view the article.</small></p>
   </div>
 </div>
-`
+`,
   );
 
   class Interstitial extends T$9(HTMLElement) {
@@ -5087,7 +5208,9 @@ p small {
   var bisectRight = ascendingBisect.right;
 
   function range(start, stop, step) {
-    (start = +start), (stop = +stop), (step = (n = arguments.length) < 2 ? ((stop = start), (start = 0), 1) : n < 3 ? 1 : +step);
+    (start = +start),
+      (stop = +stop),
+      (step = (n = arguments.length) < 2 ? ((stop = start), (start = 0), 1) : n < 3 ? 1 : +step);
 
     var i = -1,
       n = Math.max(0, Math.ceil((stop - start) / step)) | 0,
@@ -5379,7 +5502,12 @@ p small {
         l === 6
           ? rgbn(m) // #ff0000
           : l === 3
-            ? new Rgb(((m >> 8) & 0xf) | ((m >> 4) & 0xf0), ((m >> 4) & 0xf) | (m & 0xf0), ((m & 0xf) << 4) | (m & 0xf), 1) // #f00
+            ? new Rgb(
+                ((m >> 8) & 0xf) | ((m >> 4) & 0xf0),
+                ((m >> 4) & 0xf) | (m & 0xf0),
+                ((m & 0xf) << 4) | (m & 0xf),
+                1,
+              ) // #f00
             : l === 8
               ? rgba((m >> 24) & 0xff, (m >> 16) & 0xff, (m >> 8) & 0xff, (m & 0xff) / 0xff) // #ff000000
               : l === 4
@@ -5387,7 +5515,7 @@ p small {
                     ((m >> 12) & 0xf) | ((m >> 8) & 0xf0),
                     ((m >> 8) & 0xf) | ((m >> 4) & 0xf0),
                     ((m >> 4) & 0xf) | (m & 0xf0),
-                    (((m & 0xf) << 4) | (m & 0xf)) / 0xff
+                    (((m & 0xf) << 4) | (m & 0xf)) / 0xff,
                   ) // #f000
                 : null) // invalid hex
       : (m = reRgbInteger.exec(format))
@@ -5467,7 +5595,7 @@ p small {
       formatHex: rgb_formatHex,
       formatRgb: rgb_formatRgb,
       toString: rgb_formatRgb,
-    })
+    }),
   );
 
   function rgb_formatHex() {
@@ -5555,10 +5683,21 @@ p small {
           l = this.l,
           m2 = l + (l < 0.5 ? l : 1 - l) * s,
           m1 = 2 * l - m2;
-        return new Rgb(hsl2rgb(h >= 240 ? h - 240 : h + 120, m1, m2), hsl2rgb(h, m1, m2), hsl2rgb(h < 120 ? h + 240 : h - 120, m1, m2), this.opacity);
+        return new Rgb(
+          hsl2rgb(h >= 240 ? h - 240 : h + 120, m1, m2),
+          hsl2rgb(h, m1, m2),
+          hsl2rgb(h < 120 ? h + 240 : h - 120, m1, m2),
+          this.opacity,
+        );
       },
       displayable: function () {
-        return ((0 <= this.s && this.s <= 1) || isNaN(this.s)) && 0 <= this.l && this.l <= 1 && 0 <= this.opacity && this.opacity <= 1;
+        return (
+          ((0 <= this.s && this.s <= 1) || isNaN(this.s)) &&
+          0 <= this.l &&
+          this.l <= 1 &&
+          0 <= this.opacity &&
+          this.opacity <= 1
+        );
       },
       formatHsl: function () {
         var a = this.opacity;
@@ -5574,12 +5713,20 @@ p small {
           (a === 1 ? ")" : ", " + a + ")")
         );
       },
-    })
+    }),
   );
 
   /* From FvD 13.37, CSS Color Module Level 3 */
   function hsl2rgb(h, m1, m2) {
-    return (h < 60 ? m1 + ((m2 - m1) * h) / 60 : h < 180 ? m2 : h < 240 ? m1 + ((m2 - m1) * (240 - h)) / 60 : m1) * 255;
+    return (
+      (h < 60
+        ? m1 + ((m2 - m1) * h) / 60
+        : h < 180
+          ? m2
+          : h < 240
+            ? m1 + ((m2 - m1) * (240 - h)) / 60
+            : m1) * 255
+    );
   }
 
   var deg2rad = Math.PI / 180;
@@ -5645,10 +5792,10 @@ p small {
           lrgb2rgb(3.1338561 * x - 1.6168667 * y - 0.4906146 * z),
           lrgb2rgb(-0.9787684 * x + 1.9161415 * y + 0.033454 * z),
           lrgb2rgb(0.0719453 * x - 0.2289914 * y + 1.4052427 * z),
-          this.opacity
+          this.opacity,
         );
       },
-    })
+    }),
   );
 
   function xyz2lab(t) {
@@ -5705,7 +5852,7 @@ p small {
       rgb: function () {
         return hcl2lab(this).rgb();
       },
-    })
+    }),
   );
 
   var A = -0.14861,
@@ -5732,7 +5879,9 @@ p small {
   }
 
   function cubehelix(h, s, l, opacity) {
-    return arguments.length === 1 ? cubehelixConvert(h) : new Cubehelix(h, s, l, opacity == null ? 1 : opacity);
+    return arguments.length === 1
+      ? cubehelixConvert(h)
+      : new Cubehelix(h, s, l, opacity == null ? 1 : opacity);
   }
 
   function Cubehelix(h, s, l, opacity) {
@@ -5760,9 +5909,14 @@ p small {
           a = isNaN(this.s) ? 0 : this.s * l * (1 - l),
           cosh = Math.cos(h),
           sinh = Math.sin(h);
-        return new Rgb(255 * (l + a * (A * cosh + B * sinh)), 255 * (l + a * (C * cosh + D * sinh)), 255 * (l + a * (E * cosh)), this.opacity);
+        return new Rgb(
+          255 * (l + a * (A * cosh + B * sinh)),
+          255 * (l + a * (C * cosh + D * sinh)),
+          255 * (l + a * (E * cosh)),
+          this.opacity,
+        );
       },
-    })
+    }),
   );
 
   function constant(x) {
@@ -5983,7 +6137,8 @@ p small {
                   ? numberArray
                   : Array.isArray(b)
                     ? genericArray
-                    : (typeof b.valueOf !== "function" && typeof b.toString !== "function") || isNaN(b)
+                    : (typeof b.valueOf !== "function" && typeof b.toString !== "function") ||
+                        isNaN(b)
                       ? object
                       : interpolateNumber)(a, b);
   }
@@ -6068,7 +6223,12 @@ p small {
   }
 
   function copy(source, target) {
-    return target.domain(source.domain()).range(source.range()).interpolate(source.interpolate()).clamp(source.clamp()).unknown(source.unknown());
+    return target
+      .domain(source.domain())
+      .range(source.range())
+      .interpolate(source.interpolate())
+      .clamp(source.clamp())
+      .unknown(source.unknown());
   }
 
   function transformer() {
@@ -6092,11 +6252,19 @@ p small {
     }
 
     function scale(x) {
-      return isNaN((x = +x)) ? unknown : (output || (output = piecewise(domain.map(transform), range, interpolate$1)))(transform(clamp(x)));
+      return isNaN((x = +x))
+        ? unknown
+        : (output || (output = piecewise(domain.map(transform), range, interpolate$1)))(
+            transform(clamp(x)),
+          );
     }
 
     scale.invert = function (y) {
-      return clamp(untransform((input || (input = piecewise(range, domain.map(transform), interpolateNumber)))(y)));
+      return clamp(
+        untransform(
+          (input || (input = piecewise(range, domain.map(transform), interpolateNumber)))(y),
+        ),
+      );
     };
 
     scale.domain = function (_) {
@@ -6143,7 +6311,10 @@ p small {
 
     // The string returned by toExponential either has the form \d\.\d+e[-+]\d+
     // (e.g., 1.2e+3) or the form \de[-+]\d+ (e.g., 1e+3).
-    return [coefficient.length > 1 ? coefficient[0] + coefficient.slice(2) : coefficient, +x.slice(i + 1)];
+    return [
+      coefficient.length > 1 ? coefficient[0] + coefficient.slice(2) : coefficient,
+      +x.slice(i + 1),
+    ];
   }
 
   function exponent(x) {
@@ -6330,7 +6501,10 @@ p small {
       currencyPrefix = locale.currency === undefined ? "" : locale.currency[0] + "",
       currencySuffix = locale.currency === undefined ? "" : locale.currency[1] + "",
       decimal = locale.decimal === undefined ? "." : locale.decimal + "",
-      numerals = locale.numerals === undefined ? identity$1 : formatNumerals(map.call(locale.numerals, String)),
+      numerals =
+        locale.numerals === undefined
+          ? identity$1
+          : formatNumerals(map.call(locale.numerals, String)),
       percent = locale.percent === undefined ? "%" : locale.percent + "",
       minus = locale.minus === undefined ? "-" : locale.minus + "",
       nan = locale.nan === undefined ? "NaN" : locale.nan + "";
@@ -6352,14 +6526,20 @@ p small {
       // The "n" type is an alias for ",g".
       if (type === "n") (comma = true), (type = "g");
       // The "" type, and any invalid type, is an alias for ".12~g".
-      else if (!formatTypes[type]) precision === undefined && (precision = 12), (trim = true), (type = "g");
+      else if (!formatTypes[type])
+        precision === undefined && (precision = 12), (trim = true), (type = "g");
 
       // If zero fill is specified, padding goes after sign and before digits.
       if (zero || (fill === "0" && align === "=")) (zero = true), (fill = "0"), (align = "=");
 
       // Compute the prefix and suffix.
       // For SI-prefix, the suffix is lazily computed.
-      var prefix = symbol === "$" ? currencyPrefix : symbol === "#" && /[boxX]/.test(type) ? "0" + type.toLowerCase() : "",
+      var prefix =
+          symbol === "$"
+            ? currencyPrefix
+            : symbol === "#" && /[boxX]/.test(type)
+              ? "0" + type.toLowerCase()
+              : "",
         suffix = symbol === "$" ? currencySuffix : /[%p]/.test(type) ? percent : "";
 
       // What format function should we use?
@@ -6372,7 +6552,12 @@ p small {
       // or clamp the specified precision to the supported range.
       // For significant precision, it must be in [1, 21].
       // For fixed precision, it must be in [0, 20].
-      precision = precision === undefined ? 6 : /[gprs]/.test(type) ? Math.max(1, Math.min(21, precision)) : Math.max(0, Math.min(20, precision));
+      precision =
+        precision === undefined
+          ? 6
+          : /[gprs]/.test(type)
+            ? Math.max(1, Math.min(21, precision))
+            : Math.max(0, Math.min(20, precision));
 
       function format(value) {
         var valuePrefix = prefix,
@@ -6400,8 +6585,18 @@ p small {
           if (valueNegative && +value === 0 && sign !== "+") valueNegative = false;
 
           // Compute the prefix and suffix.
-          valuePrefix = (valueNegative ? (sign === "(" ? sign : minus) : sign === "-" || sign === "(" ? "" : sign) + valuePrefix;
-          valueSuffix = (type === "s" ? prefixes[8 + prefixExponent / 3] : "") + valueSuffix + (valueNegative && sign === "(" ? ")" : "");
+          valuePrefix =
+            (valueNegative
+              ? sign === "("
+                ? sign
+                : minus
+              : sign === "-" || sign === "("
+                ? ""
+                : sign) + valuePrefix;
+          valueSuffix =
+            (type === "s" ? prefixes[8 + prefixExponent / 3] : "") +
+            valueSuffix +
+            (valueNegative && sign === "(" ? ")" : "");
 
           // Break the formatted value into the integer “value” part that can be
           // grouped, and fractional or exponential “suffix” part that is not.
@@ -6409,7 +6604,8 @@ p small {
             (i = -1), (n = value.length);
             while (++i < n) {
               if (((c = value.charCodeAt(i)), 48 > c || c > 57)) {
-                valueSuffix = (c === 46 ? decimal + value.slice(i + 1) : value.slice(i)) + valueSuffix;
+                valueSuffix =
+                  (c === 46 ? decimal + value.slice(i + 1) : value.slice(i)) + valueSuffix;
                 value = value.slice(0, i);
                 break;
               }
@@ -6425,7 +6621,9 @@ p small {
           padding = length < width ? new Array(width - length + 1).join(fill) : "";
 
         // If the fill character is "0", grouping is applied after padding.
-        if (comma && zero) (value = group(padding + value, padding.length ? width - valueSuffix.length : Infinity)), (padding = "");
+        if (comma && zero)
+          (value = group(padding + value, padding.length ? width - valueSuffix.length : Infinity)),
+            (padding = "");
 
         // Reconstruct the final output based on the desired alignment.
         switch (align) {
@@ -6436,7 +6634,12 @@ p small {
             value = valuePrefix + padding + value + valueSuffix;
             break;
           case "^":
-            value = padding.slice(0, (length = padding.length >> 1)) + valuePrefix + value + valueSuffix + padding.slice(length);
+            value =
+              padding.slice(0, (length = padding.length >> 1)) +
+              valuePrefix +
+              value +
+              valueSuffix +
+              padding.slice(length);
             break;
           default:
             value = padding + valuePrefix + value + valueSuffix;
@@ -6454,7 +6657,9 @@ p small {
     }
 
     function formatPrefix(specifier, value) {
-      var f = newFormat(((specifier = formatSpecifier(specifier)), (specifier.type = "f"), specifier)),
+      var f = newFormat(
+          ((specifier = formatSpecifier(specifier)), (specifier.type = "f"), specifier),
+        ),
         e = Math.max(-8, Math.min(8, Math.floor(exponent(value) / 3))) * 3,
         k = Math.pow(10, -e),
         prefix = prefixes[8 + e / 3];
@@ -6493,7 +6698,10 @@ p small {
   }
 
   function precisionPrefix(step, value) {
-    return Math.max(0, Math.max(-8, Math.min(8, Math.floor(exponent(value) / 3))) * 3 - exponent(Math.abs(step)));
+    return Math.max(
+      0,
+      Math.max(-8, Math.min(8, Math.floor(exponent(value) / 3))) * 3 - exponent(Math.abs(step)),
+    );
   }
 
   function precisionRound(step, max) {
@@ -6508,7 +6716,8 @@ p small {
     switch (specifier.type) {
       case "s": {
         var value = Math.max(Math.abs(start), Math.abs(stop));
-        if (specifier.precision == null && !isNaN((precision = precisionPrefix(step, value)))) specifier.precision = precision;
+        if (specifier.precision == null && !isNaN((precision = precisionPrefix(step, value))))
+          specifier.precision = precision;
         return formatPrefix(specifier, value);
       }
       case "":
@@ -6516,13 +6725,17 @@ p small {
       case "g":
       case "p":
       case "r": {
-        if (specifier.precision == null && !isNaN((precision = precisionRound(step, Math.max(Math.abs(start), Math.abs(stop))))))
+        if (
+          specifier.precision == null &&
+          !isNaN((precision = precisionRound(step, Math.max(Math.abs(start), Math.abs(stop)))))
+        )
           specifier.precision = precision - (specifier.type === "e");
         break;
       }
       case "f":
       case "%": {
-        if (specifier.precision == null && !isNaN((precision = precisionFixed(step)))) specifier.precision = precision - (specifier.type === "%") * 2;
+        if (specifier.precision == null && !isNaN((precision = precisionFixed(step))))
+          specifier.precision = precision - (specifier.type === "%") * 2;
         break;
       }
     }
@@ -6650,7 +6863,7 @@ p small {
                 while ((offseti(date, +1), !test(date))) {} // eslint-disable-line no-empty
               }
           }
-        }
+        },
       );
     };
 
@@ -6674,7 +6887,7 @@ p small {
                     }
                   : function (d) {
                       return interval.count(0, d) % step === 0;
-                    }
+                    },
               );
       };
     }
@@ -6691,7 +6904,7 @@ p small {
     },
     function (start, end) {
       return end - start;
-    }
+    },
   );
 
   // An optimized implementation for this simple case.
@@ -6708,7 +6921,7 @@ p small {
       },
       function (start, end) {
         return (end - start) / k;
-      }
+      },
     );
   };
 
@@ -6730,7 +6943,7 @@ p small {
     },
     function (date) {
       return date.getUTCSeconds();
-    }
+    },
   );
 
   var minute = newInterval(
@@ -6745,12 +6958,17 @@ p small {
     },
     function (date) {
       return date.getMinutes();
-    }
+    },
   );
 
   var hour = newInterval(
     function (date) {
-      date.setTime(date - date.getMilliseconds() - date.getSeconds() * durationSecond - date.getMinutes() * durationMinute);
+      date.setTime(
+        date -
+          date.getMilliseconds() -
+          date.getSeconds() * durationSecond -
+          date.getMinutes() * durationMinute,
+      );
     },
     function (date, step) {
       date.setTime(+date + step * durationHour);
@@ -6760,7 +6978,7 @@ p small {
     },
     function (date) {
       return date.getHours();
-    }
+    },
   );
 
   var day = newInterval(
@@ -6771,11 +6989,14 @@ p small {
       date.setDate(date.getDate() + step);
     },
     function (start, end) {
-      return (end - start - (end.getTimezoneOffset() - start.getTimezoneOffset()) * durationMinute) / durationDay;
+      return (
+        (end - start - (end.getTimezoneOffset() - start.getTimezoneOffset()) * durationMinute) /
+        durationDay
+      );
     },
     function (date) {
       return date.getDate() - 1;
-    }
+    },
   );
 
   function weekday(i) {
@@ -6788,8 +7009,11 @@ p small {
         date.setDate(date.getDate() + step * 7);
       },
       function (start, end) {
-        return (end - start - (end.getTimezoneOffset() - start.getTimezoneOffset()) * durationMinute) / durationWeek;
-      }
+        return (
+          (end - start - (end.getTimezoneOffset() - start.getTimezoneOffset()) * durationMinute) /
+          durationWeek
+        );
+      },
     );
   }
 
@@ -6814,7 +7038,7 @@ p small {
     },
     function (date) {
       return date.getMonth();
-    }
+    },
   );
 
   var year = newInterval(
@@ -6830,7 +7054,7 @@ p small {
     },
     function (date) {
       return date.getFullYear();
-    }
+    },
   );
 
   // An optimized implementation for this simple case.
@@ -6845,7 +7069,7 @@ p small {
           },
           function (date, step) {
             date.setFullYear(date.getFullYear() + step * k);
-          }
+          },
         );
   };
 
@@ -6861,7 +7085,7 @@ p small {
     },
     function (date) {
       return date.getUTCMinutes();
-    }
+    },
   );
 
   var utcHour = newInterval(
@@ -6876,7 +7100,7 @@ p small {
     },
     function (date) {
       return date.getUTCHours();
-    }
+    },
   );
 
   var utcDay = newInterval(
@@ -6891,7 +7115,7 @@ p small {
     },
     function (date) {
       return date.getUTCDate() - 1;
-    }
+    },
   );
 
   function utcWeekday(i) {
@@ -6905,7 +7129,7 @@ p small {
       },
       function (start, end) {
         return (end - start) / durationWeek;
-      }
+      },
     );
   }
 
@@ -6926,11 +7150,15 @@ p small {
       date.setUTCMonth(date.getUTCMonth() + step);
     },
     function (start, end) {
-      return end.getUTCMonth() - start.getUTCMonth() + (end.getUTCFullYear() - start.getUTCFullYear()) * 12;
+      return (
+        end.getUTCMonth() -
+        start.getUTCMonth() +
+        (end.getUTCFullYear() - start.getUTCFullYear()) * 12
+      );
     },
     function (date) {
       return date.getUTCMonth();
-    }
+    },
   );
 
   var utcYear = newInterval(
@@ -6946,7 +7174,7 @@ p small {
     },
     function (date) {
       return date.getUTCFullYear();
-    }
+    },
   );
 
   // An optimized implementation for this simple case.
@@ -6961,7 +7189,7 @@ p small {
           },
           function (date, step) {
             date.setUTCFullYear(date.getUTCFullYear() + step * k);
-          }
+          },
         );
   };
 
@@ -7185,9 +7413,15 @@ p small {
           }
         } else if ("W" in d || "U" in d) {
           if (!("w" in d)) d.w = "u" in d ? d.u % 7 : "W" in d ? 1 : 0;
-          day$1 = "Z" in d ? utcDate(newDate(d.y, 0, 1)).getUTCDay() : localDate(newDate(d.y, 0, 1)).getDay();
+          day$1 =
+            "Z" in d
+              ? utcDate(newDate(d.y, 0, 1)).getUTCDay()
+              : localDate(newDate(d.y, 0, 1)).getDay();
           d.m = 0;
-          d.d = "W" in d ? ((d.w + 6) % 7) + d.W * 7 - ((day$1 + 5) % 7) : d.w + d.U * 7 - ((day$1 + 6) % 7);
+          d.d =
+            "W" in d
+              ? ((d.w + 6) % 7) + d.W * 7 - ((day$1 + 5) % 7)
+              : d.w + d.U * 7 - ((day$1 + 6) % 7);
         }
 
         // If a time zone is specified, all fields are interpreted as UTC and then
@@ -7638,8 +7872,34 @@ p small {
     periods: ["AM", "PM"],
     days: ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
     shortDays: ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"],
-    months: ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"],
-    shortMonths: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
+    months: [
+      "January",
+      "February",
+      "March",
+      "April",
+      "May",
+      "June",
+      "July",
+      "August",
+      "September",
+      "October",
+      "November",
+      "December",
+    ],
+    shortMonths: [
+      "Jan",
+      "Feb",
+      "Mar",
+      "Apr",
+      "May",
+      "Jun",
+      "Jul",
+      "Aug",
+      "Sep",
+      "Oct",
+      "Nov",
+      "Dec",
+    ],
   });
 
   function defaultLocale$1(definition) {
@@ -7670,7 +7930,8 @@ p small {
 
   function dispatch() {
     for (var i = 0, n = arguments.length, _ = {}, t; i < n; ++i) {
-      if (!(t = arguments[i] + "") || t in _ || /[\s.]/.test(t)) throw new Error("illegal type: " + t);
+      if (!(t = arguments[i] + "") || t in _ || /[\s.]/.test(t))
+        throw new Error("illegal type: " + t);
       _[t] = [];
     }
     return new Dispatch(_);
@@ -7704,13 +7965,15 @@ p small {
 
       // If no callback was specified, return the callback of the given type and name.
       if (arguments.length < 2) {
-        while (++i < n) if ((t = (typename = T[i]).type) && (t = get(_[t], typename.name))) return t;
+        while (++i < n)
+          if ((t = (typename = T[i]).type) && (t = get(_[t], typename.name))) return t;
         return;
       }
 
       // If a type was specified, set the callback for the given type and name.
       // Otherwise, if a null callback was specified, remove callbacks of the given name.
-      if (callback != null && typeof callback !== "function") throw new Error("invalid callback: " + callback);
+      if (callback != null && typeof callback !== "function")
+        throw new Error("invalid callback: " + callback);
       while (++i < n) {
         if ((t = (typename = T[i]).type)) _[t] = set(_[t], typename.name, callback);
         else if (callback == null) for (t in _) _[t] = set(_[t], typename.name, null);
@@ -7725,7 +7988,8 @@ p small {
       return new Dispatch(copy);
     },
     call: function (type, that) {
-      if ((n = arguments.length - 2) > 0) for (var args = new Array(n), i = 0, n, t; i < n; ++i) args[i] = arguments[i + 2];
+      if ((n = arguments.length - 2) > 0)
+        for (var args = new Array(n), i = 0, n, t; i < n; ++i) args[i] = arguments[i + 2];
       if (!this._.hasOwnProperty(type)) throw new Error("unknown type: " + type);
       for (t = this._[type], i = 0, n = t.length; i < n; ++i) t[i].value.apply(that, args);
     },
@@ -7775,7 +8039,9 @@ p small {
     return function () {
       var document = this.ownerDocument,
         uri = this.namespaceURI;
-      return uri === xhtml && document.documentElement.namespaceURI === xhtml ? document.createElement(name) : document.createElementNS(uri, name);
+      return uri === xhtml && document.documentElement.namespaceURI === xhtml
+        ? document.createElement(name)
+        : document.createElementNS(uri, name);
     };
   }
 
@@ -7803,8 +8069,21 @@ p small {
   function selection_select(select) {
     if (typeof select !== "function") select = selector(select);
 
-    for (var groups = this._groups, m = groups.length, subgroups = new Array(m), j = 0; j < m; ++j) {
-      for (var group = groups[j], n = group.length, subgroup = (subgroups[j] = new Array(n)), node, subnode, i = 0; i < n; ++i) {
+    for (
+      var groups = this._groups, m = groups.length, subgroups = new Array(m), j = 0;
+      j < m;
+      ++j
+    ) {
+      for (
+        var group = groups[j],
+          n = group.length,
+          subgroup = (subgroups[j] = new Array(n)),
+          node,
+          subnode,
+          i = 0;
+        i < n;
+        ++i
+      ) {
         if ((node = group[i]) && (subnode = select.call(node, node.__data__, i, group))) {
           if ("__data__" in node) subnode.__data__ = node.__data__;
           subgroup[i] = subnode;
@@ -7830,7 +8109,11 @@ p small {
   function selection_selectAll(select) {
     if (typeof select !== "function") select = selectorAll(select);
 
-    for (var groups = this._groups, m = groups.length, subgroups = [], parents = [], j = 0; j < m; ++j) {
+    for (
+      var groups = this._groups, m = groups.length, subgroups = [], parents = [], j = 0;
+      j < m;
+      ++j
+    ) {
       for (var group = groups[j], n = group.length, node, i = 0; i < n; ++i) {
         if ((node = group[i])) {
           subgroups.push(select.call(node, node.__data__, i, group));
@@ -7851,8 +8134,16 @@ p small {
   function selection_filter(match) {
     if (typeof match !== "function") match = matcher(match);
 
-    for (var groups = this._groups, m = groups.length, subgroups = new Array(m), j = 0; j < m; ++j) {
-      for (var group = groups[j], n = group.length, subgroup = (subgroups[j] = []), node, i = 0; i < n; ++i) {
+    for (
+      var groups = this._groups, m = groups.length, subgroups = new Array(m), j = 0;
+      j < m;
+      ++j
+    ) {
+      for (
+        var group = groups[j], n = group.length, subgroup = (subgroups[j] = []), node, i = 0;
+        i < n;
+        ++i
+      ) {
         if ((node = group[i]) && match.call(node, node.__data__, i, group)) {
           subgroup.push(node);
         }
@@ -7987,7 +8278,15 @@ p small {
 
     if (typeof value !== "function") value = constant$2(value);
 
-    for (var m = groups.length, update = new Array(m), enter = new Array(m), exit = new Array(m), j = 0; j < m; ++j) {
+    for (
+      var m = groups.length,
+        update = new Array(m),
+        enter = new Array(m),
+        exit = new Array(m),
+        j = 0;
+      j < m;
+      ++j
+    ) {
       var parent = parents[j],
         group = groups[j],
         groupLength = group.length,
@@ -8044,7 +8343,16 @@ p small {
       j < m;
       ++j
     ) {
-      for (var group0 = groups0[j], group1 = groups1[j], n = group0.length, merge = (merges[j] = new Array(n)), node, i = 0; i < n; ++i) {
+      for (
+        var group0 = groups0[j],
+          group1 = groups1[j],
+          n = group0.length,
+          merge = (merges[j] = new Array(n)),
+          node,
+          i = 0;
+        i < n;
+        ++i
+      ) {
         if ((node = group0[i] || group1[i])) {
           merge[i] = node;
         }
@@ -8062,7 +8370,8 @@ p small {
     for (var groups = this._groups, j = -1, m = groups.length; ++j < m; ) {
       for (var group = groups[j], i = group.length - 1, next = group[i], node; --i >= 0; ) {
         if ((node = group[i])) {
-          if (next && node.compareDocumentPosition(next) ^ 4) next.parentNode.insertBefore(node, next);
+          if (next && node.compareDocumentPosition(next) ^ 4)
+            next.parentNode.insertBefore(node, next);
           next = node;
         }
       }
@@ -8078,8 +8387,20 @@ p small {
       return a && b ? compare(a.__data__, b.__data__) : !a - !b;
     }
 
-    for (var groups = this._groups, m = groups.length, sortgroups = new Array(m), j = 0; j < m; ++j) {
-      for (var group = groups[j], n = group.length, sortgroup = (sortgroups[j] = new Array(n)), node, i = 0; i < n; ++i) {
+    for (
+      var groups = this._groups, m = groups.length, sortgroups = new Array(m), j = 0;
+      j < m;
+      ++j
+    ) {
+      for (
+        var group = groups[j],
+          n = group.length,
+          sortgroup = (sortgroups[j] = new Array(n)),
+          node,
+          i = 0;
+        i < n;
+        ++i
+      ) {
         if ((node = group[i])) {
           sortgroup[i] = node;
         }
@@ -8188,7 +8509,9 @@ p small {
 
     if (arguments.length < 2) {
       var node = this.node();
-      return fullname.local ? node.getAttributeNS(fullname.space, fullname.local) : node.getAttribute(fullname);
+      return fullname.local
+        ? node.getAttributeNS(fullname.space, fullname.local)
+        : node.getAttribute(fullname);
     }
 
     return this.each(
@@ -8202,7 +8525,7 @@ p small {
             : attrFunction
           : fullname.local
             ? attrConstantNS
-            : attrConstant)(fullname, value)
+            : attrConstant)(fullname, value),
     );
   }
 
@@ -8237,13 +8560,20 @@ p small {
   function selection_style(name, value, priority) {
     return arguments.length > 1
       ? this.each(
-          (value == null ? styleRemove : typeof value === "function" ? styleFunction : styleConstant)(name, value, priority == null ? "" : priority)
+          (value == null
+            ? styleRemove
+            : typeof value === "function"
+              ? styleFunction
+              : styleConstant)(name, value, priority == null ? "" : priority),
         )
       : styleValue(this.node(), name);
   }
 
   function styleValue(node, name) {
-    return node.style.getPropertyValue(name) || defaultView(node).getComputedStyle(node, null).getPropertyValue(name);
+    return (
+      node.style.getPropertyValue(name) ||
+      defaultView(node).getComputedStyle(node, null).getPropertyValue(name)
+    );
   }
 
   function propertyRemove(name) {
@@ -8268,7 +8598,13 @@ p small {
 
   function selection_property(name, value) {
     return arguments.length > 1
-      ? this.each((value == null ? propertyRemove : typeof value === "function" ? propertyFunction : propertyConstant)(name, value))
+      ? this.each(
+          (value == null
+            ? propertyRemove
+            : typeof value === "function"
+              ? propertyFunction
+              : propertyConstant)(name, value),
+        )
       : this.node()[name];
   }
 
@@ -8348,7 +8684,12 @@ p small {
       return true;
     }
 
-    return this.each((typeof value === "function" ? classedFunction : value ? classedTrue : classedFalse)(names, value));
+    return this.each(
+      (typeof value === "function" ? classedFunction : value ? classedTrue : classedFalse)(
+        names,
+        value,
+      ),
+    );
   }
 
   function textRemove() {
@@ -8370,7 +8711,11 @@ p small {
 
   function selection_text(value) {
     return arguments.length
-      ? this.each(value == null ? textRemove : (typeof value === "function" ? textFunction : textConstant)(value))
+      ? this.each(
+          value == null
+            ? textRemove
+            : (typeof value === "function" ? textFunction : textConstant)(value),
+        )
       : this.node().textContent;
   }
 
@@ -8393,7 +8738,11 @@ p small {
 
   function selection_html(value) {
     return arguments.length
-      ? this.each(value == null ? htmlRemove : (typeof value === "function" ? htmlFunction : htmlConstant)(value))
+      ? this.each(
+          value == null
+            ? htmlRemove
+            : (typeof value === "function" ? htmlFunction : htmlConstant)(value),
+        )
       : this.node().innerHTML;
   }
 
@@ -8426,9 +8775,13 @@ p small {
 
   function selection_insert(name, before) {
     var create = typeof name === "function" ? name : creator(name),
-      select = before == null ? constantNull : typeof before === "function" ? before : selector(before);
+      select =
+        before == null ? constantNull : typeof before === "function" ? before : selector(before);
     return this.select(function () {
-      return this.insertBefore(create.apply(this, arguments), select.apply(this, arguments) || null);
+      return this.insertBefore(
+        create.apply(this, arguments),
+        select.apply(this, arguments) || null,
+      );
     });
   }
 
@@ -8511,7 +8864,9 @@ p small {
       var on = this.__on;
       if (!on) return;
       for (var j = 0, i = -1, m = on.length, o; j < m; ++j) {
-        if (((o = on[j]), (!typename.type || o.type === typename.type) && o.name === typename.name)) {
+        if (
+          ((o = on[j]), (!typename.type || o.type === typename.type) && o.name === typename.name)
+        ) {
           this.removeEventListener(o.type, o.listener, o.capture);
         } else {
           on[++i] = o;
@@ -8594,7 +8949,8 @@ p small {
       event = new event(type, params);
     } else {
       event = window.document.createEvent("Event");
-      if (params) event.initEvent(type, params.bubbles, params.cancelable), (event.detail = params.detail);
+      if (params)
+        event.initEvent(type, params.bubbles, params.cancelable), (event.detail = params.detail);
       else event.initEvent(type, false, false);
     }
 
@@ -8614,7 +8970,9 @@ p small {
   }
 
   function selection_dispatch(type, params) {
-    return this.each((typeof params === "function" ? dispatchFunction : dispatchConstant)(type, params));
+    return this.each(
+      (typeof params === "function" ? dispatchFunction : dispatchConstant)(type, params),
+    );
   }
 
   var root = [null];
@@ -8815,7 +9173,9 @@ p small {
       if (touchending || !filter.apply(this, arguments)) return;
       var gesture = beforestart("mouse", container.apply(this, arguments), mouse, this, arguments);
       if (!gesture) return;
-      select(event.view).on("mousemove.drag", mousemoved, true).on("mouseup.drag", mouseupped, true);
+      select(event.view)
+        .on("mousemove.drag", mousemoved, true)
+        .on("mouseup.drag", mouseupped, true);
       nodrag(event.view);
       nopropagation();
       mousemoving = false;
@@ -8897,12 +9257,15 @@ p small {
         sublisteners = listeners.copy();
 
       if (
-        !customEvent(new DragEvent(drag, "beforestart", s, id, active, p[0], p[1], 0, 0, sublisteners), function () {
-          if ((event.subject = s = subject.apply(that, args)) == null) return false;
-          dx = s.x - p[0] || 0;
-          dy = s.y - p[1] || 0;
-          return true;
-        })
+        !customEvent(
+          new DragEvent(drag, "beforestart", s, id, active, p[0], p[1], 0, 0, sublisteners),
+          function () {
+            if ((event.subject = s = subject.apply(that, args)) == null) return false;
+            dx = s.x - p[0] || 0;
+            dy = s.y - p[1] || 0;
+            return true;
+          },
+        )
       )
         return;
 
@@ -8920,28 +9283,47 @@ p small {
             break;
         }
         customEvent(
-          new DragEvent(drag, type, s, id, n, p[0] + dx, p[1] + dy, p[0] - p0[0], p[1] - p0[1], sublisteners),
+          new DragEvent(
+            drag,
+            type,
+            s,
+            id,
+            n,
+            p[0] + dx,
+            p[1] + dy,
+            p[0] - p0[0],
+            p[1] - p0[1],
+            sublisteners,
+          ),
           sublisteners.apply,
           sublisteners,
-          [type, that, args]
+          [type, that, args],
         );
       };
     }
 
     drag.filter = function (_) {
-      return arguments.length ? ((filter = typeof _ === "function" ? _ : constant$3(!!_)), drag) : filter;
+      return arguments.length
+        ? ((filter = typeof _ === "function" ? _ : constant$3(!!_)), drag)
+        : filter;
     };
 
     drag.container = function (_) {
-      return arguments.length ? ((container = typeof _ === "function" ? _ : constant$3(_)), drag) : container;
+      return arguments.length
+        ? ((container = typeof _ === "function" ? _ : constant$3(_)), drag)
+        : container;
     };
 
     drag.subject = function (_) {
-      return arguments.length ? ((subject = typeof _ === "function" ? _ : constant$3(_)), drag) : subject;
+      return arguments.length
+        ? ((subject = typeof _ === "function" ? _ : constant$3(_)), drag)
+        : subject;
     };
 
     drag.touchable = function (_) {
-      return arguments.length ? ((touchable = typeof _ === "function" ? _ : constant$3(!!_)), drag) : touchable;
+      return arguments.length
+        ? ((touchable = typeof _ === "function" ? _ : constant$3(!!_)), drag)
+        : touchable;
     };
 
     drag.on = function () {
@@ -9055,7 +9437,7 @@ p small {
     </div>
     <div class='ticks'></div>
   </div>
-`
+`,
   );
 
   // ARIA
@@ -9401,7 +9783,9 @@ distill-header .nav a {
         html += `<a href="${frontMatter.githubCompareUpdatesUrl}">View all changes</a> to this article since it was first published.`;
       }
       html += `
-    If you see mistakes or want to suggest changes, please <a href="${frontMatter.githubUrl + "/issues/new"}">create an issue on GitHub</a>. </p>
+    If you see mistakes or want to suggest changes, please <a href="${
+      frontMatter.githubUrl + "/issues/new"
+    }">create an issue on GitHub</a>. </p>
     `;
     }
 
@@ -9417,7 +9801,9 @@ distill-header .nav a {
       html += `
     <h3 id="citation">Citation</h3>
     <p>For attribution in academic contexts, please cite this work as</p>
-    <pre class="citation short">${frontMatter.concatenatedAuthors}, "${frontMatter.title}", Distill, ${frontMatter.publishedYear}.</pre>
+    <pre class="citation short">${frontMatter.concatenatedAuthors}, "${
+      frontMatter.title
+    }", Distill, ${frontMatter.publishedYear}.</pre>
     <p>BibTeX citation</p>
     <pre class="citation long">${serializeFrontmatterToBibtex(frontMatter)}</pre>
     `;
