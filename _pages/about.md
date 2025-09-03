@@ -42,7 +42,7 @@ I hold a Master’s degree in Space Science and Technology and a Bachelor’s de
 - Visuo-haptic shape completion,
 - Planning under uncertainty.
 
-## 📢 Opportunities
+## 🎯 Opportunities
 
 I am always open to collaborating with **PhD students** or supervising **Master’s thesis projects** in areas such as:
 
