@@ -2,7 +2,7 @@
 layout: about
 title: About
 permalink: /
-subtitle: Assistant Professor (tenure track) in Robotics and Machine Learning @ University of Turku. 
+subtitle: Assistant Professor (tenure track) in Robotics and Machine Learning @ University of Turku.
 
 profile:
   align: right
@@ -20,7 +20,7 @@ selected_papers: true # includes a list of papers marked as "selected={true}"
 social: true # includes social icons at the bottom of the page
 ---
 
-## 👋 Hello 
+## 👋 Hello
 
 I'm Jens Lundell an Assistant Professor in Robotics at the [University of Turku](https://www.utu.fi/en), Finland.
 

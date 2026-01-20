@@ -2,3 +2,5 @@ _site/
 node_modules/
 *.min.js
 assets/vendor/
+_scripts/
+assets/css/main.scss
