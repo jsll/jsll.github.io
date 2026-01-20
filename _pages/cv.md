@@ -1,8 +1,10 @@
 ---
-layout: post
+layout: cv
+permalink: /cv/
 title: CV
 nav: true
 nav_order: 3
-redirect: /files/CV.pdf
-permalink: /files/CV.pdf
+cv_pdf: CV.pdf
+toc:
+  sidebar: left
 ---

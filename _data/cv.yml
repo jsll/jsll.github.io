@@ -2,96 +2,94 @@
   type: map
   contents:
     - name: Full Name
-      value: Albert Einstein
-    - name: Date of Birth
-      value: 14th March 1879
+      value: Jens Mikael Lundell
     - name: Languages
-      value: English, German
+      value: Swedish (Native), English (Fluent), Finnish (Satisfactory)
+
+- title: Current Employment
+  type: map
+  contents:
+    - name: Assistant Professor (Tenure Track)
+      value: University of Turku, Turku, Finland (Sept 2025–)
 
 - title: Education
   type: time_table
   contents:
-    - title: PhD
-      institution: University of Zurich, Zurich, Switzerland
-      year: 1905
-      description:
-        - Description 1.
-        - Description 2.
-        - title: Description 3.
-          contents:
-            - Sub-description 1.
-            - Sub-description 2.
-    - title: Federal teaching diploma
-      institution: Eidgenössische Technische Hochschule, Zurich, Switzerland
-      year: 1900
-      description:
-        - Description 1.
-        - Description 2.
+    - title: Doctor of Science (Technology)
+      institution: Aalto University, Espoo, Finland
+      year: 2022
+      description: Robotics and Autonomous Systems, School of Electrical Engineering.
+    - title: Dual Master of Science Degree
+      institution: Aalto University (Finland) & Luleå University of Technology (Sweden)
+      year: 2016
+      description: Space Science and Technology and Space Robotics and Automation.
+    - title: Bachelor of Science
+      institution: Aalto University, Espoo, Finland
+      year: 2014
+      description: Automation and Systems Technology.
 
-- title: Experience
+- title: Previous Work Experience
   type: time_table
   contents:
-    - title: Professor of Theoretical Physics
-      institution: Institute for Advanced Study, Princeton University
-      year: 1933 - 1955
-      description:
-        - Description 1.
-        - Description 2.
-        - title: Description 3.
-          contents:
-            - Sub-description 1.
-            - Sub-description 2.
-    - title: Visiting Professor
-      institution: California Institute of Technology, Pasadena, California, US
-      year: 1933
-      description:
-        - Description 1.
-        - Description 2.
+    - title: Postdoctoral Researcher
+      institution: KTH Royal Institute of Technology (RPL), Stockholm, Sweden
+      year: 2022-2025
+      description: Division of Robotics, Perception and Learning.
 
-    - title: Director
-      institution: Kaiser Wilhelm Institute for Physics, Berlin, Germany.
-      year: 1917-1933
-
-    - title: Professor of Theoretical Physics
-      institution: Karl-Ferdinand University, Prague, Czechoslovakia
-      year: 1911 - 1917
-      description:
-
-    - title: Associate Professor of Theoretical Physics
-      institution: University of Zurich, Zurich, Switzerland
-      year: 1909 - 1911
-
-- title: Open Source Projects
+- title: Teaching
   type: time_table
   contents:
-    - title: <a href="https://github.com/alshedivat/al-folio">al-folio</a>
-      year: 2015-now
-      description: A beautiful, simple, clean, and responsive Jekyll theme for academics.
+    - title: Lecturer, Mobile Robotics
+      institution: University of Turku
+      year: 2025
+      description: Developed lecture/exercise materials and held lectures.
+    - title: Teaching Assistant, Reinforcement Learning
+      institution: KTH Royal Institute of Technology
+      year: 2023
+    - title: Primary Teaching Assistant, Robotic Manipulation
+      institution: Aalto University
+      year: 2019, 2021-2022
+      description: Jointly developed course curriculum and held weekly exercise sessions.
 
-- title: Honors and Awards
+- title: Awards and Honours
   type: time_table
   contents:
-    - year: 1921
+    - year: 2025
+      items: 
+        - IEEE/RSJ IROS Outstanding Associate Editor Award
+    - year: 2023
       items:
-        - Nobel Prize in Physics
-        - Matteucci Medal
-    - year: 2029
+        - Aalto University Doctoral Thesis Award (Top 10% of theses)
+    - year: 2019-2022
       items:
-        - Max Planck Medal
+        - Aalto Elec Doctoral School Scholarship
 
-- title: Academic Interests
-  type: nested_list
-  contents:
-    - title: Topic 1.
-      items:
-        - Description 1.
-        - Description 2.
-    - title: Topic 2.
-      items:
-        - Description 1.
-        - Description 2.
-
-- title: Other Interests
+- title: Other Key Academic Merits
   type: list
   contents:
-    - <u>Hobbies:</u> Hobby 1, Hobby 2, etc.
+    - Associate Editor for ICRA 2026 and ICRA 2025.
+    - Reviewer for CoRL, RSS, IEEE IROS, IEEE ICRA, IEEE TR-O, and RA-L.
+    - Organizer for the RPL Summer School 2024 (6-day event for 80+ researchers).
+    - Organized a mini-conference at KTH for 20 robotics Ph.D. students.
+
+- title: Invited Talks
+  type: time_table
+  contents:
+    - title: Robot Manipulation in a World of Abundant Data
+      institution: CoRL 2024 Workshop
+      year: 2024
+      description: Title of the talk was "Is there room for data efficiency in a world of abundant data?". <a href="https://www.youtube.com/watch?v=CsRJRScdhEo" target="_blank">Watch on YouTube</a>
+
+- title: Skills
+  type: nested_list
+  contents:
+    - title: Programming Languages
+      items: 
+        - Python (Experienced)
+        - C++ & Julia (Familiar)
+    - title: Frameworks & Libraries
+      items:
+        - ROS, PyTorch, MujoCo, PyBullet, GIT, Isaac Gym
+    - title: Robots
+      items:
+        - Franka Emika Panda, Kuka LWR 4+
