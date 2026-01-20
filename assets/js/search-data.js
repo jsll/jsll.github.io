@@ -35,35 +35,15 @@ ninja.data = [{
           description: "",
           section: "Navigation",
           handler: () => {
-            window.location.href = "/files/CV.pdf";
+            window.location.href = "/cv/";
           },
-        },{id: "books-the-godfather",
-          title: 'The Godfather',
-          description: "",
-          section: "Books",handler: () => {
-              window.location.href = "/books/the_godfather.html";
-            },},{id: "news-i-started-as-an-assistant-professor-tenure-track-in-robotics-and-machine-learning-at-university-of-turku",
+        },{id: "news-i-started-as-an-assistant-professor-tenure-track-in-robotics-and-machine-learning-at-university-of-turku",
           title: 'I started as an Assistant Professor (tenure track) in Robotics and Machine Learning...',
           description: "",
           section: "News",},{id: "news-i-will-serve-as-an-associate-editor-for-icra-2026",
           title: 'I will serve as an Associate Editor for ICRA 2026.',
           description: "",
-          section: "News",},{id: "projects-project-7",
-          title: 'project 7',
-          description: "with background image",
-          section: "Projects",handler: () => {
-              window.location.href = "/projects/7_project.html";
-            },},{id: "projects-project-8",
-          title: 'project 8',
-          description: "an other project with a background image and giscus comments",
-          section: "Projects",handler: () => {
-              window.location.href = "/projects/8_project.html";
-            },},{id: "projects-project-9",
-          title: 'project 9',
-          description: "another project with an image 🎉",
-          section: "Projects",handler: () => {
-              window.location.href = "/projects/9_project.html";
-            },},{
+          section: "News",},{
       id: 'light-theme',
       title: 'Change theme to light',
       description: 'Change the theme of the site to Light',
