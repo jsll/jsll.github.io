@@ -3,14 +3,21 @@
   contents:
     - name: Full Name
       value: Jens Mikael Lundell
+    - name: ORCID
+      value: <a href="https://orcid.org/0000-0002-8299-0057" target="_blank">0000-0002-8299-0057</a>
     - name: Languages
       value: Swedish (Native), English (Fluent), Finnish (Satisfactory)
 
 - title: Current Employment
   type: map
   contents:
-    - name: Assistant Professor (Tenure Track)
+    - name: Assistant Professor (Tenure Track) in Robotics and Machine Learning
       value: University of Turku, Turku, Finland (Sept 2025–)
+
+- title: Research Output
+  type: list
+  contents:
+    - 27 peer-reviewed publications. See the <a href="/publications/">Publications</a> page for the full list.
 
 - title: Education
   type: time_table
@@ -34,11 +41,44 @@
     - title: Postdoctoral Researcher
       institution: KTH Royal Institute of Technology (RPL), Stockholm, Sweden
       year: 2022-2025
-      description: Division of Robotics, Perception and Learning.
+      description: Division of Robotics, Perception and Learning (Prof. Danica Kragic's lab).
+    - title: Postdoctoral Researcher
+      institution: Aalto University, Espoo, Finland
+      year: 2022
+      description: Intelligent Robotics group (Prof. Ville Kyrki's lab).
+    - title: Visiting Doctoral Researcher
+      institution: University of Washington, Seattle, USA
+      year: 2020
+      description: Prof. Dieter Fox's lab.
+
+- title: Research Funding and Grants
+  type: time_table
+  contents:
+    - title: Physical AI Readiness Exploration
+      institution: Mirka Oy (industry contract research)
+      year: 2026
+      description: "Contract research applying Vision-Language-Action models to robotic manipulation. Role: initiated the collaboration and brought it to UTU. PI."
+    - title: WASP-Aalto Postdoctoral Fellow Project
+      institution: Wallenberg AI, Autonomous Systems and Software Program
+      year: 2023-2024
+      description: "Funding for two postdoctoral researchers and travel. Role: wrote the majority of the project plan."
+    - title: Aalto ELEC Doctoral School Scholarship
+      institution: Aalto University
+      year: 2019-2022
+      description: "Personal scholarship funding three years of doctoral studies. Role: wrote the application."
+
+- title: Research Supervision
+  type: list
+  contents:
+    - Supervised 3 PhD students and 9 MSc students.
 
 - title: Teaching
   type: time_table
   contents:
+    - title: Introduction to Robotic Manipulation
+      institution: University of Turku
+      year: 2026
+      description: Designed the course, authored the full course description, jointly developed the lectures, and held 7 lectures.
     - title: Lecturer, Mobile Robotics
       institution: University of Turku
       year: 2025
@@ -67,16 +107,22 @@
 - title: Other Key Academic Merits
   type: list
   contents:
-    - Associate Editor for ICRA 2026 and ICRA 2025.
+    - Associate Editor for IEEE ICRA 2026 and IEEE IROS 2025.
     - Reviewer for CoRL, RSS, IEEE IROS, IEEE ICRA, IEEE TR-O, and RA-L.
+    - Preliminary examiner and opponent for the doctoral dissertation of Kulunu Samarawickrama, Tampere University, 2026.
+    - Organizer of the workshop "Beyond Rigid Worlds: Representing and Interacting with Non-Rigid Objects" at CoRL 2025, Seoul, Korea.
     - Organizer for the RPL Summer School 2024 (6-day event for 80+ researchers).
     - Organized a mini-conference at KTH for 20 robotics Ph.D. students.
 
 - title: Invited Talks
   type: time_table
   contents:
+    - title: Dexterous Manipulation Roundtable on Benchmarking, Reproducibility, and Standards
+      institution: ICRA 2026, Vienna, Austria
+      year: 2026
+      description: Invited participant, convening leading organizations in robot manipulation (e.g., NIST, EPFL, Northwestern University, King's College London, Shadow Robot) to align on community benchmarking and standards.
     - title: Robot Manipulation in a World of Abundant Data
-      institution: CoRL 2024 Workshop
+      institution: CoRL 2024 Workshop, Munich, Germany
       year: 2024
       description: Title of the talk was "Is there room for data efficiency in a world of abundant data?". <a href="https://www.youtube.com/watch?v=CsRJRScdhEo" target="_blank">Watch on YouTube</a>
 
