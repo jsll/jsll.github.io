@@ -2,5 +2,7 @@ _site/
 node_modules/
 *.min.js
 assets/vendor/
+assets/js/distillpub/
 _scripts/
 assets/css/main.scss
+lighthouse_results/
