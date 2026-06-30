@@ -2,7 +2,7 @@
 layout: about
 title: About
 permalink: /
-subtitle: Assistant Professor (tenure track) in Robotics and Machine Learning @ University of Turku.
+subtitle: Assistant Professor (tenure track) in Robotics and Machine Learning @ <a href="https://www.utu.fi/fi">University of Turku</a>.
 
 profile:
   align: right
