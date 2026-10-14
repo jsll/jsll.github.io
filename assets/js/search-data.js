@@ -85,6 +85,9 @@ ninja.data = [{
           section: "News",},{id: "news-i-started-an-industry-contract-research-collaboration-with-mirka-oy-on-applying-vision-language-action-models-to-robotic-manipulation",
           title: 'I started an industry contract-research collaboration with Mirka Oy on applying Vision-Language-Action models...',
           description: "",
+          section: "News",},{id: "news-our-preprint-clothatlas-joint-garment-identification-and-state-estimation-under-self-occlusion-is-now-on-arxiv-see-the-project-page-for-videos-and-results",
+          title: 'Our preprint ClothAtlas: Joint Garment Identification and State Estimation under Self-Occlusion is now...',
+          description: "",
           section: "News",},{
       id: 'light-theme',
       title: 'Change theme to light',
