@@ -17,7 +17,7 @@
 - title: Research Output
   type: list
   contents:
-    - 27 peer-reviewed publications. See the <a href="/publications/">Publications</a> page for the full list.
+    - 25 peer-reviewed publications. See the <a href="/publications/">Publications</a> page for the full list.
 
 - title: Education
   type: time_table
@@ -70,19 +70,24 @@
 - title: Research Supervision
   type: list
   contents:
-    - Supervised 3 PhD students and 9 MSc students.
+    - Co-supervised 3 PhD students at KTH (two graduated in 2025).
+    - Principal supervisor of 11 MSc theses at Aalto University, KTH and the Czech Technical University.
 
 - title: Teaching
   type: time_table
   contents:
+    - title: Curriculum Reform, Robotics and Autonomous Systems MSc Programme
+      institution: University of Turku
+      year: 2026-2027
+      description: Initiator and lead. Proposed 7 new courses to modernise the curriculum; the department's education development group endorsed the reform unanimously.
     - title: Introduction to Robotic Manipulation
       institution: University of Turku
       year: 2026
       description: Designed the course, authored the full course description, jointly developed the lectures, and held 7 lectures.
-    - title: Lecturer, Mobile Robotics
+    - title: Perception and Navigation in Mobile Robotics
       institution: University of Turku
       year: 2025
-      description: Developed lecture/exercise materials and held lectures.
+      description: Completely redesigned the course, prepared and held the lectures, and developed the exercise materials.
     - title: Teaching Assistant, Reinforcement Learning
       institution: KTH Royal Institute of Technology
       year: 2023
@@ -108,11 +113,10 @@
   type: list
   contents:
     - Associate Editor for IEEE ICRA 2026 and IEEE IROS 2025.
-    - Reviewer for CoRL, RSS, IEEE IROS, IEEE ICRA, IEEE TR-O, and RA-L.
+    - Reviewer for CoRL, RSS, IEEE IROS, IEEE ICRA, IEEE T-RO, and RA-L.
     - Preliminary examiner and opponent for the doctoral dissertation of Kulunu Samarawickrama, Tampere University, 2026.
     - Organizer of the workshop "Beyond Rigid Worlds: Representing and Interacting with Non-Rigid Objects" at CoRL 2025, Seoul, Korea.
     - Organizer for the RPL Summer School 2024 (6-day event for 80+ researchers).
-    - Organized a mini-conference at KTH for 20 robotics Ph.D. students.
 
 - title: Invited Talks
   type: time_table
@@ -121,6 +125,10 @@
       institution: ICRA 2026, Vienna, Austria
       year: 2026
       description: Invited participant, convening leading organizations in robot manipulation (e.g., NIST, EPFL, Northwestern University, King's College London, Shadow Robot) to align on community benchmarking and standards.
+    - title: Diffusion-Based Dexterous Grasping
+      institution: Latin American Summer School on Cognitive Robotics (LACORO 2025), Rancagua, Chile (online)
+      year: 2025
+      description: Invited talk, given together with Prof. Danica Kragic.
     - title: Robot Manipulation in a World of Abundant Data
       institution: CoRL 2024 Workshop, Munich, Germany
       year: 2024
