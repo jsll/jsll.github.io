@@ -45,4 +45,4 @@ I hold a dual Master’s degree in Space Science and Technology and Space Roboti
 
 ## Prospective Students
 
-I am currently **not looking for PhD students**. I do supervise **Master's thesis projects**; the [Teaching page](/teaching/) lists the topics, example papers and what to send me.
+I am currently **not looking for PhD students**. I do supervise **Master's thesis projects**. The [Teaching page](/teaching/) lists the topics, example papers and what to send me.
