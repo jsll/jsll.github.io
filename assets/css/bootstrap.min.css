@@ -329,6 +329,10 @@ h5 {
 h6 {
   font-size: 1rem;
 }
+.lead {
+  font-size: 1.25rem;
+  font-weight: 300;
+}
 hr {
   margin-top: 1rem;
   margin-bottom: 1rem;
@@ -419,7 +423,6 @@ pre code {
 .col,
 .col-md-10,
 .col-md-2,
-.col-md-6,
 .col-sm-2,
 .col-sm-3,
 .col-sm-8,
@@ -463,11 +466,6 @@ pre code {
     -ms-flex: 0 0 16.666667%;
     flex: 0 0 16.666667%;
     max-width: 16.666667%;
-  }
-  .col-md-6 {
-    -ms-flex: 0 0 50%;
-    flex: 0 0 50%;
-    max-width: 50%;
   }
   .col-md-10 {
     -ms-flex: 0 0 83.333333%;
@@ -1732,6 +1730,9 @@ a.close.disabled {
 }
 .font-weight-bold {
   font-weight: 700 !important;
+}
+.font-italic {
+  font-style: italic !important;
 }
 .visible {
   visibility: visible !important;
