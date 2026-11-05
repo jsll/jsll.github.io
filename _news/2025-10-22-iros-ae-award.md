@@ -5,4 +5,4 @@ inline: true
 related_posts: false
 ---
 
-I won the [2025 IEEE IROS](https://www.iros25.org/) "Outstanding Associate Editor Award".
+I won the "Outstanding Associate Editor Award" of [IROS 2025](https://www.iros25.org/), the IEEE/RSJ International Conference on Intelligent Robots and Systems.

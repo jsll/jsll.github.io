@@ -5,4 +5,4 @@ inline: true
 related_posts: false
 ---
 
-I organized the [RPL Summer School 2024](https://summer-school.rpl.eecs.kth.se/rpl-summer-school-2024/) (80 participants) in Stockholm, Sweden.
+I organized KTH's [Robotics, Perception and Learning (RPL) Summer School 2024](https://summer-school.rpl.eecs.kth.se/rpl-summer-school-2024/) (80 participants) in Stockholm, Sweden.

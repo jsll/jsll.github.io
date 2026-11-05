@@ -22,15 +22,15 @@ social: true # includes social icons at the bottom of the page
 
 ## 👋 Hello
 
-I'm Jens Lundell an Assistant Professor in Robotics at the [University of Turku](https://www.utu.fi/en), Finland.
+I'm Jens Lundell, an Assistant Professor in Robotics at the [University of Turku](https://www.utu.fi/en), Finland.
 
-My research focuses on enabling robots to **grasp and manipulate** objects in uncertain and cluttered environments. I combine **deep learning**, **probabilistic reasoning**, and **tactile perception** to build robust manipulation systems.
+I work on how robots **grasp and handle objects they cannot fully see**, such as items in a cluttered pile or a garment folded over itself. I build generative models that propose grasps for two-finger grippers and multi-fingered hands, and methods that estimate the shape of cloth and other objects from camera images and touch. The selected papers below show examples.
 
 ## 🕰️ Bio
 
 I worked as a postdoctoral researcher from 2022-2025 with Danica Kragic in the [Robotics, Perception and Learning Lab (RPL)](https://www.kth.se/is/rpl) at KTH in Stockholm, Sweden.
 
-I did my Ph.D. in the [Intelligent Robotics group](https://irobotics.aalto.fi/) at [Aalto University](https://www.aalto.fi/en) (Finland) under the supervision of [Prof. Ville Kyrki](https://people.aalto.fi/ville.kyrki) and [Ph.D. Francesco Verdoja](https://fverdoja.github.io/). My [Ph.D. thesis](https://aaltodoc.aalto.fi/bitstream/handle/123456789/112725/isbn9789526406824.pdf?sequence=1) addressed the problem of probabilistic 6-degree-of-freedom multi-finger grasping of objects in clutter. My solution to those problems was to explicitly shape-complete each object in the scene using deep learning, and plan grasps on those reconstructions. I also focused on using physics simulators to gather synthetic data for training deep networks.
+I did my Ph.D. in the [Intelligent Robotics group](https://irobotics.aalto.fi/) at [Aalto University](https://www.aalto.fi/en) (Finland) under the supervision of [Prof. Ville Kyrki](https://people.aalto.fi/ville.kyrki) and [Dr. Francesco Verdoja](https://fverdoja.github.io/). My [Ph.D. thesis](https://aaltodoc.aalto.fi/bitstream/handle/123456789/112725/isbn9789526406824.pdf?sequence=1) addressed the problem of probabilistic 6-degree-of-freedom multi-finger grasping of objects in clutter. My solution was to explicitly shape-complete each object in the scene using deep learning, and plan grasps on those reconstructions. I also focused on using physics simulators to gather synthetic data for training deep networks.
 
 I hold a Master’s degree in Space Science and Technology and a Bachelor’s degree in Automation and Systems Technology, both from Aalto University.
 
@@ -44,15 +44,4 @@ I hold a Master’s degree in Space Science and Technology and a Bachelor’s de
 
 ## 🎯 Opportunities
 
-I am always open to collaborating with **PhD students** or supervising **Master’s thesis projects** in areas such as:
-
-- 6-DoF grasp generation,
-- Manipulation of cluttered or deformable objects,
-- Visuo-haptic perception.
-
-If you are interested, please [contact me](mailto:jens.lundell@utu.fi) with:
-
-- A short background,
-- CV and transcript,
-- Your research interests,
-- Links to code or papers (if available).
+I am looking for **PhD students** and supervise **Master's thesis projects**. The [Teaching page](/teaching/) lists the topics, example papers and what to send me.

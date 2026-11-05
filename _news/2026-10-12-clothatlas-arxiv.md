@@ -5,4 +5,4 @@ inline: true
 related_posts: false
 ---
 
-Our preprint [ClothAtlas: Joint Garment Identification and State Estimation under Self-Occlusion](https://arxiv.org/abs/2610.16293) is now on arXiv. See the [project page](https://clothatlas.github.io/) for videos and results.
+Our preprint [ClothAtlas: Joint Garment Identification and State Estimation under Self-Occlusion](https://arxiv.org/abs/2610.16293) is now on arXiv. It identifies a garment and estimates its full shape when folds hide parts of it. See the [project page](https://clothatlas.github.io/) for videos and results.
