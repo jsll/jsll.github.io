@@ -7,7 +7,7 @@ nav: true
 nav_order: 3
 ---
 
-## 📚 Courses
+## Courses
 
 I design and teach courses on robotic manipulation, mobile robotics, and learning for control.
 
@@ -20,11 +20,11 @@ I design and teach courses on robotic manipulation, mobile robotics, and learnin
 
 I also started and lead the reform of the University of Turku's Robotics and Autonomous Systems MSc programme (2026–2027). I proposed seven new courses, and the department's education development group endorsed the reform unanimously.
 
-## 🧑‍🎓 Student supervision
+## Student Supervision
 
 I have co-supervised **3 PhD students** at KTH, two of whom graduated in 2025, and was principal supervisor of **11 MSc theses** at Aalto University, KTH and the Czech Technical University. Their projects covered how robots choose where to grasp an object (grasp synthesis), how they handle cloth and other soft objects, and generative models for robotics.
 
-## 🎯 Prospective students
+## Prospective Students
 
 I am currently **not looking for PhD students**. I do supervise **Master's thesis projects** in five areas. The example papers show what such a project can look like.
 
