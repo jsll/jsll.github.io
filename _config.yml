@@ -630,9 +630,9 @@ third_party_libraries:
 # Get external JSON data
 # -----------------------------------------------------------------------------
 
-jekyll_get_json:
-  - data: resume
-    json: assets/json/resume.json # it can also be an url
+# The CV page is built from _data/cv.yml. To build it from a JSON resume instead, add
+# an entry such as `- data: resume` / `json: assets/json/resume.json` to this list.
+jekyll_get_json: []
 
 jsonresume:
   - basics
